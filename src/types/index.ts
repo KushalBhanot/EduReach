@@ -1,3 +1,6 @@
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RouteProp } from '@react-navigation/native';
+
 export type Subject = 'Math' | 'Science' | 'English';
 
 export type Grade = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
@@ -66,3 +69,21 @@ export type RootStackParamList = {
     language: Language;
   };
 };
+
+export type ChatScreenProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'Chat'>;
+  route: RouteProp<RootStackParamList, 'Chat'>;
+};
+
+export type SubjectPickerScreenProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'SubjectPicker'>;
+};
+
+export interface SimpleMarkdownProps {
+  children: string;
+  color?: string;
+}
+
+export interface OfflineBannerProps {
+  queueLength: number;
+}

@@ -1,6 +1,4 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RouteProp } from '@react-navigation/native';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   ActivityIndicator,
@@ -36,12 +34,7 @@ import {
   removeFromQueue,
 } from '../services/offlineQueue';
 import { recordQuestion } from '../services/progressService';
-import { Message, QuizQuestion, RootStackParamList } from '../types';
-
-type Props = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'Chat'>;
-  route: RouteProp<RootStackParamList, 'Chat'>;
-};
+import { ChatScreenProps, Message, QuizQuestion } from '../types';
 
 // Design tokens
 const BG = '#F4F4FA';
@@ -167,7 +160,7 @@ function QuizCard({
   );
 }
 
-export function ChatScreen({ navigation, route }: Props) {
+export function ChatScreen({ navigation, route }: ChatScreenProps) {
   const { subject, grade, model, language } = route.params;
   const { isOnline } = useNetworkStatus();
   const storageKey = CHAT_HISTORY_KEY(subject, grade);

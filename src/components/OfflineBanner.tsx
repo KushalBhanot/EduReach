@@ -1,11 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { OfflineBannerProps } from '../types';
 
-interface Props {
-  queueLength: number;
-}
-
-export function OfflineBanner({ queueLength }: Props) {
+export function OfflineBanner({ queueLength }: OfflineBannerProps) {
   return (
     <View style={styles.banner}>
       <Text style={styles.icon}>📡</Text>

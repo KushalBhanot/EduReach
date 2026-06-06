@@ -1,4 +1,3 @@
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
 import {
   ScrollView,
@@ -11,19 +10,15 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { MODEL_CONFIG, LANGUAGE_CONFIG } from '../services/gemmaService';
 import { getProgress } from '../services/progressService';
 import { getStreak } from '../services/streakService';
-import { StreakData } from '../types';
 import {
   Grade,
   Language,
   ModelQuality,
   ProgressEntry,
-  RootStackParamList,
+  StreakData,
   Subject,
+  SubjectPickerScreenProps,
 } from '../types';
-
-type Props = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'SubjectPicker'>;
-};
 
 // Design tokens
 const BG = '#F4F4FA';
@@ -74,7 +69,7 @@ const GRADES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as Grade[];
 const LANGUAGES = Object.keys(LANGUAGE_CONFIG) as Language[];
 const MODELS = Object.keys(MODEL_CONFIG) as ModelQuality[];
 
-export function SubjectPickerScreen({ navigation }: Props) {
+export function SubjectPickerScreen({ navigation }: SubjectPickerScreenProps) {
   const [selectedGrade, setSelectedGrade] = useState<Grade>(5);
   const [selectedModel, setSelectedModel] = useState<ModelQuality>('fast');
   const [selectedLang, setSelectedLang] = useState<Language>('English');

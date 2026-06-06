@@ -1,16 +1,12 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-
-interface Props {
-  children: string;
-  color?: string;
-}
+import { SimpleMarkdownProps } from '../types';
 
 /**
  * Lightweight markdown renderer — handles bold, bullets, and numbered lists.
  * No external dependencies, no layout bugs.
  */
-export function SimpleMarkdown({ children, color = '#1C1917' }: Props) {
+export function SimpleMarkdown({ children, color = '#1C1917' }: SimpleMarkdownProps) {
   const lines = children.split('\n');
 
   return (
