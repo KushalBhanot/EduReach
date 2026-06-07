@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { OfflineBannerProps } from '../types';
+import { styles } from './OfflineBanner.styles';
 
 export function OfflineBanner({ queueLength }: OfflineBannerProps) {
   return (
@@ -15,17 +16,3 @@ export function OfflineBanner({ queueLength }: OfflineBannerProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  banner: {
-    backgroundColor: '#FEF3C7',
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 9,
-    gap: 8,
-    borderBottomWidth: 1,
-    borderBottomColor: '#FDE68A',
-  },
-  icon: { fontSize: 14 },
-  text: { color: '#92400E', fontSize: 13, fontWeight: '600', flex: 1 },
-});

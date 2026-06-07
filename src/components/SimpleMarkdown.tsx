@@ -1,6 +1,7 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View } from 'react-native';
 import { SimpleMarkdownProps } from '../types';
+import { styles } from './SimpleMarkdown.styles';
 
 /**
  * Lightweight markdown renderer — handles bold, bullets, and numbered lists.
@@ -100,21 +101,3 @@ function renderInline(text: string, color: string): React.ReactNode[] {
   return parts;
 }
 
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 15,
-    lineHeight: 22,
-    flexShrink: 1,
-  },
-  bulletRow: {
-    flexDirection: 'row',
-    gap: 8,
-    marginVertical: 2,
-    alignItems: 'flex-start',
-  },
-  bullet: {
-    fontSize: 15,
-    lineHeight: 22,
-    width: 16,
-  },
-});
