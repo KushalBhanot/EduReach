@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { ChatInputProps } from '../types';
+import { ChatInputProps } from '../../types';
 import { styles, TEXT_LO } from './ChatInput.styles';
 
 export function ChatInput({

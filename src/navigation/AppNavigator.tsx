@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import { ChatScreen } from '../screens/ChatScreen';
-import { SubjectPickerScreen } from '../screens/SubjectPickerScreen';
+import { ChatScreen } from '../screens/ChatScreen/ChatScreen';
+import { SubjectPickerScreen } from '../screens/SubjectPickerScreen/SubjectPickerScreen';
 import { RootStackParamList } from '../types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

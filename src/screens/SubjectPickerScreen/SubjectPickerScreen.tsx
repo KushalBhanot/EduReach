@@ -6,9 +6,9 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { MODEL_CONFIG, LANGUAGE_CONFIG } from '../services/gemmaService';
-import { getProgress } from '../services/progressService';
-import { getStreak } from '../services/streakService';
+import { MODEL_CONFIG, LANGUAGE_CONFIG } from '../../services/gemmaService';
+import { getProgress } from '../../services/progressService';
+import { getStreak } from '../../services/streakService';
 import {
   Grade,
   Language,
@@ -17,7 +17,7 @@ import {
   StreakData,
   Subject,
   SubjectPickerScreenProps,
-} from '../types';
+} from '../../types';
 import { styles, INDIGO_DK } from './SubjectPickerScreen.styles';
 
 const SUBJECTS: {

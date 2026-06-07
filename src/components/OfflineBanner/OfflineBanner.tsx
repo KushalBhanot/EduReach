@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { OfflineBannerProps } from '../types';
+import { OfflineBannerProps } from '../../types';
 import { styles } from './OfflineBanner.styles';
 
 export function OfflineBanner({ queueLength }: OfflineBannerProps) {

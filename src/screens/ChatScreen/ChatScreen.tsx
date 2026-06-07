@@ -13,26 +13,26 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ChatInput } from '../components/ChatInput';
-import { ChatMessage } from '../components/ChatMessage';
-import { OfflineBanner } from '../components/OfflineBanner';
-import { useNetworkStatus } from '../hooks/useNetworkStatus';
+import { ChatInput } from '../../components/ChatInput/ChatInput';
+import { ChatMessage } from '../../components/ChatMessage/ChatMessage';
+import { OfflineBanner } from '../../components/OfflineBanner/OfflineBanner';
+import { useNetworkStatus } from '../../hooks/useNetworkStatus';
 import {
   GemmaMessage,
   MODEL_CONFIG,
   LANGUAGE_CONFIG,
   QuotaExceededError,
   askGemma,
-} from '../services/gemmaService';
-import { generateQuiz } from '../services/quizService';
-import { recordActivity } from '../services/streakService';
+} from '../../services/gemmaService';
+import { generateQuiz } from '../../services/quizService';
+import { recordActivity } from '../../services/streakService';
 import {
   enqueueQuestion,
   getQueue,
   removeFromQueue,
-} from '../services/offlineQueue';
-import { recordQuestion } from '../services/progressService';
-import { ChatScreenProps, Message } from '../types';
+} from '../../services/offlineQueue';
+import { recordQuestion } from '../../services/progressService';
+import { ChatScreenProps, Message } from '../../types';
 import {
   styles,
   BG,

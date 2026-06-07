@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { QuizCardProps } from '../types';
+import { QuizCardProps } from '../../types';
 import {
   styles,
   SURFACE,

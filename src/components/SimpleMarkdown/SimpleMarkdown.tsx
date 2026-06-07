@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { SimpleMarkdownProps } from '../types';
+import { SimpleMarkdownProps } from '../../types';
 import { styles } from './SimpleMarkdown.styles';
 
 /**

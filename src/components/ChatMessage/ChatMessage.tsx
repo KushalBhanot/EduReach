@@ -6,9 +6,9 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
-import { ChatMessageProps } from '../types';
-import { SimpleMarkdown } from './SimpleMarkdown';
-import { QuizCard } from './QuizCard';
+import { ChatMessageProps } from '../../types';
+import { SimpleMarkdown } from '../SimpleMarkdown/SimpleMarkdown';
+import { QuizCard } from '../QuizCard/QuizCard';
 import { styles, INDIGO } from './ChatMessage.styles';
 
 const MODEL_LABEL: Record<string, string> = {
