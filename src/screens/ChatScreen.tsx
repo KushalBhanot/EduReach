@@ -9,13 +9,12 @@ import {
   Platform,
   Switch,
   Text,
-  TextInput,
   TouchableOpacity,
-  TouchableWithoutFeedback,
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { SimpleMarkdown } from '../components/SimpleMarkdown';
+import { ChatInput } from '../components/ChatInput';
+import { ChatMessage } from '../components/ChatMessage';
 import { OfflineBanner } from '../components/OfflineBanner';
 import { useNetworkStatus } from '../hooks/useNetworkStatus';
 import {
@@ -33,34 +32,18 @@ import {
   removeFromQueue,
 } from '../services/offlineQueue';
 import { recordQuestion } from '../services/progressService';
-import { ChatScreenProps, Message, QuizQuestion } from '../types';
+import { ChatScreenProps, Message } from '../types';
 import {
   styles,
-  quizStyles,
   BG,
   INDIGO,
-  INDIGO_DK,
-  INDIGO_BG,
   SURFACE,
   TEXT_HI,
   TEXT_LO,
 } from './ChatScreen.styles';
 
-const MODEL_LABEL: Record<string, string> = {
-  'gemini-2.5-flash': '⚡ Fast',
-  'gemma-4-26b-a4b-it': '🧠 Smart',
-  'gemma-4-31b-it': '🏆 Expert',
-};
-
 const CHAT_HISTORY_KEY = (subject: string, grade: number) =>
   `edureach:chat:${subject}:grade${grade}`;
-
-function formatTime(ts: number): string {
-  const d = new Date(ts);
-  const h = d.getHours(),
-    m = d.getMinutes().toString().padStart(2, '0');
-  return `${h % 12 || 12}:${m} ${h >= 12 ? 'PM' : 'AM'}`;
-}
 
 function buildGemmaHistory(messages: Message[]): GemmaMessage[] {
   return messages
@@ -69,96 +52,6 @@ function buildGemmaHistory(messages: Message[]): GemmaMessage[] {
       role: m.role === 'user' ? 'user' : 'model',
       parts: [{ text: m.content }],
     }));
-}
-
-// Quiz card component
-function QuizCard({
-  quiz,
-  answers,
-  onAnswer,
-}: {
-  quiz: QuizQuestion[];
-  answers: Record<number, number>;
-  onAnswer: (qIdx: number, oIdx: number) => void;
-}) {
-  return (
-    <View style={quizStyles.container}>
-      <Text style={quizStyles.header}>🧩 Quick Quiz</Text>
-      {quiz.map((q, qi) => {
-        const chosen = answers[qi];
-        const answered = chosen !== undefined;
-        return (
-          <View key={qi} style={quizStyles.questionBlock}>
-            <Text style={quizStyles.questionText}>
-              {qi + 1}. {q.question}
-            </Text>
-            {q.options.map((opt, oi) => {
-              const isChosen = chosen === oi;
-              const isCorrect = oi === q.correctIndex;
-              let bg = SURFACE;
-              let border = 'transparent';
-              let textColor = TEXT_HI;
-              if (answered) {
-                if (isCorrect) {
-                  bg = '#ECFDF5';
-                  border = '#10B981';
-                  textColor = '#065F46';
-                } else if (isChosen) {
-                  bg = '#FEF2F2';
-                  border = '#EF4444';
-                  textColor = '#991B1B';
-                }
-              } else if (isChosen) {
-                bg = INDIGO_BG;
-                border = INDIGO;
-                textColor = INDIGO_DK;
-              }
-              return (
-                <TouchableOpacity
-                  key={oi}
-                  style={[
-                    quizStyles.option,
-                    { backgroundColor: bg, borderColor: border },
-                  ]}
-                  onPress={() => !answered && onAnswer(qi, oi)}
-                  disabled={answered}
-                  activeOpacity={0.75}
-                >
-                  <Text style={[quizStyles.optionLabel, { color: textColor }]}>
-                    {String.fromCharCode(65 + oi)}
-                  </Text>
-                  <Text style={[quizStyles.optionText, { color: textColor }]}>
-                    {opt}
-                  </Text>
-                  {answered && isCorrect && (
-                    <Text style={quizStyles.tick}>✓</Text>
-                  )}
-                  {answered && isChosen && !isCorrect && (
-                    <Text style={quizStyles.cross}>✗</Text>
-                  )}
-                </TouchableOpacity>
-              );
-            })}
-            {answered && (
-              <Text style={quizStyles.explanation}>💡 {q.explanation}</Text>
-            )}
-          </View>
-        );
-      })}
-      {Object.keys(answers).length === quiz.length && (
-        <View style={quizStyles.scoreRow}>
-          <Text style={quizStyles.scoreText}>
-            {
-              Object.entries(answers).filter(
-                ([qi, oi]) => oi === quiz[Number(qi)].correctIndex,
-              ).length
-            }
-            /{quiz.length} correct 🎉
-          </Text>
-        </View>
-      )}
-    </View>
-  );
 }
 
 export function ChatScreen({ navigation, route }: ChatScreenProps) {
@@ -182,6 +75,7 @@ export function ChatScreen({ navigation, route }: ChatScreenProps) {
   >({});
   const listRef = useRef<FlatList>(null);
 
+  // Load persisted chat history and pending queue count on mount
   useEffect(() => {
     AsyncStorage.getItem(storageKey).then((raw) => {
       if (raw) setMessages(JSON.parse(raw));
@@ -191,11 +85,13 @@ export function ChatScreen({ navigation, route }: ChatScreenProps) {
     );
   }, [storageKey, subject]);
 
+  // Persist messages whenever they change
   useEffect(() => {
     if (messages.length > 0)
       AsyncStorage.setItem(storageKey, JSON.stringify(messages));
   }, [messages, storageKey]);
 
+  // Flush queued messages when coming back online
   useEffect(() => {
     if (!isOnline) return;
     (async () => {
@@ -301,18 +197,8 @@ export function ChatScreen({ navigation, route }: ChatScreenProps) {
     } finally {
       setIsLoading(false);
     }
-  }, [
-    isLoading,
-    isOnline,
-    messages,
-    subject,
-    grade,
-    language,
-    model,
-    deepThinking,
-  ]);
+  }, [isLoading, isOnline, messages, subject, grade, language, model, deepThinking]);
 
-  // Generate a quiz based on the last AI message
   const handleQuizMe = useCallback(
     async (messageId: string, explanation: string) => {
       if (isQuizLoading || !isOnline) return;
@@ -341,6 +227,11 @@ export function ChatScreen({ navigation, route }: ChatScreenProps) {
     [],
   );
 
+  const handleToggleThinking = useCallback((id: string) => {
+    setExpandedThinking((prev) => ({ ...prev, [id]: !prev[id] }));
+  }, []);
+
+  // Configure navigation header
   useEffect(() => {
     navigation.setOptions({
       title: `G${grade} · ${subject}`,
@@ -401,7 +292,7 @@ export function ChatScreen({ navigation, route }: ChatScreenProps) {
     };
     setMessages((prev) => [...prev, userMsg]);
     await recordQuestion(subject, text);
-    await recordActivity(); // update streak
+    await recordActivity();
 
     if (!isOnline) {
       await enqueueQuestion(subject, grade, text, buildGemmaHistory(messages));
@@ -448,150 +339,42 @@ export function ChatScreen({ navigation, route }: ChatScreenProps) {
     } finally {
       setIsLoading(false);
     }
-  }, [
-    input,
-    isLoading,
-    isOnline,
-    messages,
-    subject,
-    grade,
-    language,
-    model,
-    deepThinking,
-  ]);
+  }, [input, isLoading, isOnline, messages, subject, grade, language, model, deepThinking]);
 
-  const renderMessage = ({ item, index }: { item: Message; index: number }) => {
-    const isUser = item.role === 'user';
-    const isCopied = copiedId === item.id;
-    const isLastAssistant =
-      !isUser && messages.slice(index + 1).every((m) => m.role === 'user');
-    const isThinkingExpanded = expandedThinking[item.id] ?? false;
-    const msgQuizAnswers = quizAnswers[item.id] ?? {};
-
-    return (
-      <View
-        style={[
-          styles.messageGroup,
-          isUser ? styles.messageGroupUser : styles.messageGroupAssistant,
-        ]}
-      >
-        <View
-          style={[styles.row, isUser ? styles.rowUser : styles.rowAssistant]}
-        >
-          {!isUser && (
-            <View style={styles.avatar}>
-              <Text style={styles.avatarText}>AI</Text>
-            </View>
-          )}
-          <TouchableWithoutFeedback
-            onLongPress={() => copyToClipboard(item.content, item.id)}
-          >
-            <View
-              style={[
-                styles.bubble,
-                isUser ? styles.bubbleUser : styles.bubbleAssistant,
-                item.pending && styles.bubblePending,
-                isCopied && styles.bubbleCopied,
-              ]}
-            >
-              {item.thinking && (
-                <TouchableOpacity
-                  onPress={() =>
-                    setExpandedThinking((prev) => ({
-                      ...prev,
-                      [item.id]: !isThinkingExpanded,
-                    }))
-                  }
-                  style={styles.thinkingHeader}
-                >
-                  <Text style={styles.thinkingHeaderText}>
-                    {isThinkingExpanded ? '▾' : '▸'} Thinking process...
-                  </Text>
-                </TouchableOpacity>
-              )}
-              {item.actualModel && (
-                <View
-                  style={[
-                    styles.modelBadge,
-                    item.usedFallback && styles.modelBadgeFallback,
-                  ]}
-                >
-                  <Text
-                    style={[
-                      styles.modelBadgeText,
-                      item.usedFallback && styles.modelBadgeTextFallback,
-                    ]}
-                  >
-                    {MODEL_LABEL[item.actualModel] ?? item.actualModel}
-                    {item.usedFallback ? ' (Expert unavailable)' : ''}
-                  </Text>
-                </View>
-              )}
-              {item.thinking && isThinkingExpanded && (
-                <View style={styles.thinkingBody}>
-                  <Text style={styles.thinkingBodyText}>{item.thinking}</Text>
-                </View>
-              )}
-              {isUser ? (
-                <Text style={styles.bubbleTextUser}>{item.content}</Text>
-              ) : (
-                <SimpleMarkdown>{item.content}</SimpleMarkdown>
-              )}
-              {item.pending && (
-                <Text style={styles.pendingLabel}>
-                  ⏳ Queued — will send when online
-                </Text>
-              )}
-              {isCopied && <Text style={styles.copiedLabel}>✓ Copied</Text>}
-            </View>
-          </TouchableWithoutFeedback>
-        </View>
-
-        {/* Quiz card — rendered below the bubble, full width */}
-        {item.quiz && (
-          <View style={styles.quizWrapper}>
-            <QuizCard
-              quiz={item.quiz}
-              answers={msgQuizAnswers}
-              onAnswer={(qi, oi) => handleQuizAnswer(item.id, qi, oi)}
-            />
-          </View>
-        )}
-
-        <View
-          style={[
-            styles.belowBubble,
-            isUser ? styles.belowBubbleUser : styles.belowBubbleAssistant,
-          ]}
-        >
-          <Text style={styles.timestamp}>{formatTime(item.timestamp)}</Text>
-          {isLastAssistant && !item.pending && !item.quiz && (
-            <View style={styles.actionRow}>
-              <TouchableOpacity
-                onPress={explainDifferently}
-                style={styles.actionBtn}
-              >
-                <Text style={styles.actionBtnText}>↺ Explain differently</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => handleQuizMe(item.id, item.content)}
-                style={[styles.actionBtn, styles.actionBtnQuiz]}
-                disabled={isQuizLoading}
-              >
-                {isQuizLoading ? (
-                  <ActivityIndicator size='small' color={INDIGO} />
-                ) : (
-                  <Text style={[styles.actionBtnText, { color: INDIGO }]}>
-                    🧩 Quiz me
-                  </Text>
-                )}
-              </TouchableOpacity>
-            </View>
-          )}
-        </View>
-      </View>
-    );
-  };
+  const renderItem = useCallback(
+    ({ item, index }: { item: Message; index: number }) => {
+      const isLastAssistant =
+        item.role !== 'user' &&
+        messages.slice(index + 1).every((m) => m.role === 'user');
+      return (
+        <ChatMessage
+          item={item}
+          isLastAssistant={isLastAssistant}
+          copiedId={copiedId}
+          expandedThinking={expandedThinking}
+          quizAnswers={quizAnswers}
+          isQuizLoading={isQuizLoading}
+          onCopy={copyToClipboard}
+          onExplainDifferently={explainDifferently}
+          onQuizMe={handleQuizMe}
+          onQuizAnswer={handleQuizAnswer}
+          onToggleThinking={handleToggleThinking}
+        />
+      );
+    },
+    [
+      messages,
+      copiedId,
+      expandedThinking,
+      quizAnswers,
+      isQuizLoading,
+      copyToClipboard,
+      explainDifferently,
+      handleQuizMe,
+      handleQuizAnswer,
+      handleToggleThinking,
+    ],
+  );
 
   return (
     <SafeAreaView style={styles.safe} edges={['bottom']}>
@@ -614,7 +397,7 @@ export function ChatScreen({ navigation, route }: ChatScreenProps) {
           ref={listRef}
           data={messages}
           keyExtractor={(item) => item.id}
-          renderItem={renderMessage}
+          renderItem={renderItem}
           contentContainerStyle={styles.list}
           keyboardShouldPersistTaps='handled'
           onContentSizeChange={() =>
@@ -646,31 +429,14 @@ export function ChatScreen({ navigation, route }: ChatScreenProps) {
           </View>
         )}
 
-        <View style={styles.inputRow}>
-          <TextInput
-            style={styles.input}
-            value={input}
-            onChangeText={setInput}
-            placeholder={`Ask a Grade ${grade} ${subject} question…`}
-            placeholderTextColor={TEXT_LO}
-            multiline
-            maxLength={400}
-            returnKeyType='send'
-            onSubmitEditing={sendMessage}
-          />
-          <TouchableOpacity
-            style={[
-              styles.sendBtn,
-              (!input.trim() || isLoading) && styles.sendBtnDisabled,
-            ]}
-            onPress={sendMessage}
-            disabled={!input.trim() || isLoading}
-          >
-            <Text style={styles.sendIcon}>↑</Text>
-          </TouchableOpacity>
-        </View>
+        <ChatInput
+          input={input}
+          onChangeText={setInput}
+          onSubmit={sendMessage}
+          isLoading={isLoading}
+          placeholder={`Ask a Grade ${grade} ${subject} question…`}
+        />
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
-
