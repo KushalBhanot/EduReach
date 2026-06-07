@@ -87,3 +87,31 @@ export interface SimpleMarkdownProps {
 export interface OfflineBannerProps {
   queueLength: number;
 }
+
+export interface QuizCardProps {
+  quiz: QuizQuestion[];
+  answers: Record<number, number>;
+  onAnswer: (qIdx: number, oIdx: number) => void;
+}
+
+export interface ChatMessageProps {
+  item: Message;
+  isLastAssistant: boolean;
+  copiedId: string | null;
+  expandedThinking: Record<string, boolean>;
+  quizAnswers: Record<string, Record<number, number>>;
+  isQuizLoading: boolean;
+  onCopy: (text: string, id: string) => void;
+  onExplainDifferently: () => void;
+  onQuizMe: (messageId: string, explanation: string) => void;
+  onQuizAnswer: (messageId: string, qIdx: number, oIdx: number) => void;
+  onToggleThinking: (id: string) => void;
+}
+
+export interface ChatInputProps {
+  input: string;
+  onChangeText: (text: string) => void;
+  onSubmit: () => void;
+  isLoading: boolean;
+  placeholder: string;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { QuizQuestion } from '../types';
+import { QuizCardProps } from '../types';
 import {
   styles,
   SURFACE,
@@ -9,12 +9,6 @@ import {
   INDIGO_BG,
   TEXT_HI,
 } from './QuizCard.styles';
-
-interface QuizCardProps {
-  quiz: QuizQuestion[];
-  answers: Record<number, number>;
-  onAnswer: (qIdx: number, oIdx: number) => void;
-}
 
 export const QuizCard = React.memo(function QuizCard({
   quiz,

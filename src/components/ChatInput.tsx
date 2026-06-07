@@ -1,14 +1,7 @@
 import React from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ChatInputProps } from '../types';
 import { styles, TEXT_LO } from './ChatInput.styles';
-
-interface ChatInputProps {
-  input: string;
-  onChangeText: (text: string) => void;
-  onSubmit: () => void;
-  isLoading: boolean;
-  placeholder: string;
-}
 
 export function ChatInput({
   input,

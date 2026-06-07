@@ -6,7 +6,7 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
-import { Message } from '../types';
+import { ChatMessageProps } from '../types';
 import { SimpleMarkdown } from './SimpleMarkdown';
 import { QuizCard } from './QuizCard';
 import { styles, INDIGO } from './ChatMessage.styles';
@@ -22,20 +22,6 @@ function formatTime(ts: number): string {
   const h = d.getHours();
   const m = d.getMinutes().toString().padStart(2, '0');
   return `${h % 12 || 12}:${m} ${h >= 12 ? 'PM' : 'AM'}`;
-}
-
-interface ChatMessageProps {
-  item: Message;
-  isLastAssistant: boolean;
-  copiedId: string | null;
-  expandedThinking: Record<string, boolean>;
-  quizAnswers: Record<string, Record<number, number>>;
-  isQuizLoading: boolean;
-  onCopy: (text: string, id: string) => void;
-  onExplainDifferently: () => void;
-  onQuizMe: (messageId: string, explanation: string) => void;
-  onQuizAnswer: (messageId: string, qIdx: number, oIdx: number) => void;
-  onToggleThinking: (id: string) => void;
 }
 
 export const ChatMessage = React.memo(function ChatMessage({
