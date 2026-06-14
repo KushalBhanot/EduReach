@@ -141,7 +141,7 @@ The offline queue is the core differentiator. A student can ask questions on the
 
 ## Built By
 
-**Kushal Bhanot** — SDE, incoming MSCS at USC
+**Kushal Bhanot** — incoming MSCS at USC
 [LinkedIn](https://linkedin.com/in/kushalbhanot) · [GitHub](https://github.com/KushalBhanot)
 
 ---
