@@ -59,13 +59,13 @@ EduReach is built for the students that current AI tools leave behind.
 
 ---
 
-## Prize Tracks
+## Design goals
 
-**Cactus Prize** — EduReach routes between three Gemma 4 model tiers and stores all data locally on-device. The architecture is designed to swap the cloud API for on-device Gemma 4 E2B/E4B with a single config change.
+**Works with poor connectivity.** Questions are saved locally with their conversation context and answered automatically when the connection returns. Model calls go to the Gemini API today. The tier config is set up so on-device Gemma 4 E2B/E4B can replace the cloud call later.
 
-**Digital Equity and Inclusivity** — 6-language native prompting, Grade 1 to 10 calibration, works on low-end Android phones, offline queue ensures no question is lost due to poor connectivity.
+**Inclusive by default.** Native-language prompting in 6 languages and answers calibrated for grades 1 to 10.
 
-**Future of Education** — Grade-adaptive depth, Quiz Me for active recall, Explain differently for re-teaching, daily streak for habit formation.
+**Built for learning, not just answers.** Grade-adaptive depth, Quiz Me for active recall, Explain differently for re-teaching, and a daily streak for habit formation.
 
 ---
 
@@ -141,7 +141,7 @@ The offline queue is the core differentiator. A student can ask questions on the
 
 ## Built By
 
-**Kushal Bhanot** — incoming MSCS at USC
+**Kushal Bhanot**, MS CS student at USC
 [LinkedIn](https://linkedin.com/in/kushalbhanot) · [GitHub](https://github.com/KushalBhanot)
 
 ---
