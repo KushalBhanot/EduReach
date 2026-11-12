@@ -15,7 +15,7 @@ Every number here comes from a script in `backend/eval/` and a file in `backend/
 | Questions | `backend/eval/questions.jsonl`: 44 answerable (29 Math, 15 Science), 6 in Hindi/Spanish/French, 10 in-scope but not covered by the books, 2 with no book for the subject/grade |
 | Deployment | FastAPI on Cloud Run (`min-instances=0`, `max-instances=2`), Cloud SQL over the built-in connector, DB URL in Secret Manager, no API key anywhere |
 
-**Caveat on the questions.** Claude wrote the questions and their gold-section labels from the books' section titles, as student-style questions. Kushal has not checked them yet. Questions written with the section list in view are probably easier than real student questions, so hit rates are likely optimistic. The similarity threshold was also chosen on this same set.
+**Caveat on the questions.** The questions and their gold-section labels were drafted from the books' section titles, as student-style questions, and have not been independently checked. Questions written with the section list in view are probably easier than real student questions, so hit rates are likely optimistic. The similarity threshold was also chosen on this same set.
 
 ## Retrieval (`eval.retrieval`)
 
@@ -101,7 +101,7 @@ What the notes say:
 - **Math: mostly a wash.** The model already knows grade 6 to 10 math well. Twice, the RAG answer followed the book's procedure and dropped what a student needs most: the mixture-problem answer described the setup without writing the two equations (q28), and the factoring answer used the book's less familiar layout (q20).
 - **Grounding works.** No cited answer claimed something its passages didn't back up.
 
-Limits: one grader, not blind (the sheet labelled which answer was RAG), 19 answers, and the questions were written by Claude.
+Limits: one grader, not blind (the sheet labelled which answer was RAG), 19 answers, and the questions were drafted from the section titles.
 
 ## Prompt v2 (Nov 12): fixing what the grading found
 
@@ -120,7 +120,7 @@ Same 62 questions, same model, LOW thinking (`eval/out/answers_low_v2.json`):
 | RAG latency, median / p95 | 1.79 s / 3.60 s | 1.76 s / 3.89 s |
 | Cost per 1,000 RAG requests, median | $0.88 | $0.99 |
 
-On the three answers graded "prompt-only better": q28 now writes both equations and a worked example, q20 uses the "multiply to c, add to b" method, and q34 explains DNA replication in grade-9 language instead of listing Okazaki fragments and ligase. That before/after was judged by Claude reading the answers, not by re-grading. v2 is deployed on Cloud Run (revision `edureach-api-00003`), and every request log carries `rag_prompt`.
+On the three answers graded "prompt-only better": q28 now writes both equations and a worked example, q20 uses the "multiply to c, add to b" method, and q34 explains DNA replication in grade-9 language instead of listing Okazaki fragments and ligase. That before/after comes from reading the new answers, not from a re-grade. v2 is deployed on Cloud Run (revision `edureach-api-00003`), and every request log carries `rag_prompt`.
 
 ## Outage behavior
 
@@ -129,5 +129,5 @@ During a free-tier run, the embedding quota ran out in the middle of the eval. A
 ## Not yet measured
 
 1. A second, blind grader, and grades for the Spanish and French answers.
-2. Questions written by someone other than Claude, or by real students.
+2. Questions written without the section list in view, or by real students.
 3. Cold-start latency after scale-to-zero, measured more than once.

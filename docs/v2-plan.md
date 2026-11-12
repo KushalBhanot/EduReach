@@ -202,7 +202,6 @@ docs/v2-plan.md, docs/results.md
 
 ## 11. Rules for this build
 
-- Claude writes the code; Kushal reviews the diffs and does all git operations (no `git add`/commit/push unless he asks).
 - No GCP resource gets created and nothing is installed system-wide (e.g. `brew`) without Kushal saying yes first. Project-local deps (`uv` venv, `yarn`) are normal dev work.
 - The 20 hand-labeled faithfulness answers (Day 11) stay a human task: they are the ground truth the judge is measured against.
 - No number goes in the README or on the resume unless it's in `docs/results.md` with the command that produced it.

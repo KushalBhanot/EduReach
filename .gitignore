@@ -46,5 +46,3 @@ yarn-error.*
 # Testing
 coverage/
 
-# Claude
-.claude/
