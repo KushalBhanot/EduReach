@@ -1,0 +1,23 @@
+[project]
+name = "edureach-backend"
+version = "0.1.0"
+description = "EduReach v2 API: Gemini on Vertex AI behind FastAPI on Cloud Run"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.162.0",
+    "google-genai>=2.33.0",
+    "pgvector>=0.5.1",
+    "psycopg[binary,pool]>=3.3.8",
+    "pydantic>=2.14.1",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.16.0",
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

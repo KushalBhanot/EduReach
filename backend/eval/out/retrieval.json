@@ -1,0 +1,2547 @@
+{
+ "backend": "vertex",
+ "questions": [
+  {
+   "id": "q01",
+   "kind": "answerable",
+   "question": "how do you divide one fraction by another fraction?",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:4.2",
+      "prealgebra-2e:4.2",
+      "prealgebra-2e:4.3",
+      "prealgebra-2e:4.2",
+      "prealgebra-2e:4.3"
+     ],
+     "search_ms": 32.3
+    },
+    "keyword": {
+     "rank": 8,
+     "top": [
+      "prealgebra-2e:4.1",
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:4.1",
+      "prealgebra-2e:5.3"
+     ],
+     "search_ms": 27.6
+    },
+    "hybrid": {
+     "rank": 4,
+     "top": [
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:4.3",
+      "prealgebra-2e:4.3",
+      "prealgebra-2e:4.2",
+      "prealgebra-2e:4.2"
+     ],
+     "search_ms": 19.7
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.725008184462062
+  },
+  {
+   "id": "q02",
+   "kind": "answerable",
+   "question": "why do I need a common denominator to add 1/3 and 1/4?",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:4.6",
+      "prealgebra-2e:4.4",
+      "prealgebra-2e:4.4",
+      "prealgebra-2e:4.5"
+     ],
+     "search_ms": 5.2
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:4.4",
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:4.5"
+     ],
+     "search_ms": 8.8
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:4.4",
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:4.5"
+     ],
+     "search_ms": 15.5
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7077956795692444
+  },
+  {
+   "id": "q03",
+   "kind": "answerable",
+   "question": "what's the difference between a prime number and a composite number",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:2.4",
+      "prealgebra-2e:2.4",
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:2.4"
+     ],
+     "search_ms": 5.4
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:2.4",
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:7.1",
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:2.5"
+     ],
+     "search_ms": 9.6
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:2.4",
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:2.5"
+     ],
+     "search_ms": 13.7
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7317772987287119
+  },
+  {
+   "id": "q04",
+   "kind": "answerable",
+   "question": "how do I subtract a negative number?",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:3.3",
+      "prealgebra-2e:3.3",
+      "prealgebra-2e:3.3",
+      "prealgebra-2e:3.2",
+      "prealgebra-2e:3.3"
+     ],
+     "search_ms": 4.8
+    },
+    "keyword": {
+     "rank": 2,
+     "top": [
+      "prealgebra-2e:7.1",
+      "prealgebra-2e:3.3",
+      "prealgebra-2e:2.4",
+      "prealgebra-2e:4.6",
+      "prealgebra-2e:3.1"
+     ],
+     "search_ms": 8.2
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:3.3",
+      "prealgebra-2e:3.3",
+      "prealgebra-2e:3.3",
+      "prealgebra-2e:3.3",
+      "prealgebra-2e:5.2"
+     ],
+     "search_ms": 11.9
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7347554406377949
+  },
+  {
+   "id": "q05",
+   "kind": "answerable",
+   "question": "how do i turn a fraction into a decimal",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:5.3",
+      "prealgebra-2e:5.3",
+      "prealgebra-2e:6.1",
+      "prealgebra-2e:6.1",
+      "prealgebra-2e:6.1"
+     ],
+     "search_ms": 5.2
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:5.3",
+      "prealgebra-2e:5.1",
+      "prealgebra-2e:5.2",
+      "prealgebra-2e:6.1",
+      "prealgebra-2e:4.5"
+     ],
+     "search_ms": 6.3
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:5.3",
+      "prealgebra-2e:6.1",
+      "prealgebra-2e:5.1",
+      "prealgebra-2e:5.3",
+      "prealgebra-2e:5.6"
+     ],
+     "search_ms": 10.6
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7449048827503546
+  },
+  {
+   "id": "q06",
+   "kind": "answerable",
+   "question": "what is 15 percent of 80 and how do you work it out",
+   "modes": {
+    "vector": {
+     "rank": 2,
+     "top": [
+      "prealgebra-2e:6.5",
+      "prealgebra-2e:6.2",
+      "prealgebra-2e:6.2",
+      "prealgebra-2e:6.2",
+      "prealgebra-2e:6.3"
+     ],
+     "search_ms": 4.9
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:6.2",
+      "prealgebra-2e:6.5",
+      "prealgebra-2e:6.1",
+      "prealgebra-2e:6.1",
+      "prealgebra-2e:6.1"
+     ],
+     "search_ms": 5.8
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:6.2",
+      "prealgebra-2e:6.1",
+      "prealgebra-2e:6.5",
+      "prealgebra-2e:6.5",
+      "prealgebra-2e:6.2"
+     ],
+     "search_ms": 9.2
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.6559564471244812
+  },
+  {
+   "id": "q07",
+   "kind": "answerable",
+   "question": "how do I find the length of the longest side of a right triangle?",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:9.3",
+      "elementary-algebra-2e:3.4",
+      "prealgebra-2e:9.3",
+      "elementary-algebra-2e:3.4",
+      "elementary-algebra-2e:3.4"
+     ],
+     "search_ms": 8.3
+    },
+    "keyword": {
+     "rank": 4,
+     "top": [
+      "prealgebra-2e:9.4",
+      "prealgebra-2e:8.3",
+      "prealgebra-2e:8.3",
+      "prealgebra-2e:9.3",
+      "elementary-algebra-2e:3.4"
+     ],
+     "search_ms": 10.5
+    },
+    "hybrid": {
+     "rank": 2,
+     "top": [
+      "elementary-algebra-2e:3.4",
+      "prealgebra-2e:9.3",
+      "prealgebra-2e:9.4",
+      "elementary-algebra-2e:3.4",
+      "prealgebra-2e:9.3"
+     ],
+     "search_ms": 17.7
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.6912947297096301
+  },
+  {
+   "id": "q08",
+   "kind": "answerable",
+   "question": "what does the mean of a set of numbers tell you and how is it different from the median",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.5"
+     ],
+     "search_ms": 7.0
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:7.1",
+      "prealgebra-2e:2.4"
+     ],
+     "search_ms": 8.4
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.5"
+     ],
+     "search_ms": 9.9
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.6974936307970517
+  },
+  {
+   "id": "q09",
+   "kind": "answerable",
+   "question": "how do you find the area of a circle",
+   "modes": {
+    "vector": {
+     "rank": 3,
+     "top": [
+      "prealgebra-2e:5.3",
+      "prealgebra-2e:5.3",
+      "prealgebra-2e:9.5",
+      "prealgebra-2e:9.5",
+      "prealgebra-2e:5.3"
+     ],
+     "search_ms": 8.1
+    },
+    "keyword": {
+     "rank": 2,
+     "top": [
+      "prealgebra-2e:5.3",
+      "prealgebra-2e:9.5",
+      "prealgebra-2e:5.7",
+      "prealgebra-2e:6.2",
+      "prealgebra-2e:9.6"
+     ],
+     "search_ms": 7.2
+    },
+    "hybrid": {
+     "rank": 3,
+     "top": [
+      "prealgebra-2e:5.3",
+      "prealgebra-2e:5.3",
+      "prealgebra-2e:9.5",
+      "prealgebra-2e:9.5",
+      "prealgebra-2e:9.5"
+     ],
+     "search_ms": 16.3
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7123542003420484
+  },
+  {
+   "id": "q10",
+   "kind": "answerable",
+   "question": "how do I find the least common multiple of 8 and 12",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:2.5"
+     ],
+     "search_ms": 4.6
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:2.4",
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:2.4"
+     ],
+     "search_ms": 6.6
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:2.4",
+      "prealgebra-2e:2.5"
+     ],
+     "search_ms": 10.1
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7172047327282878
+  },
+  {
+   "id": "q11",
+   "kind": "answerable",
+   "question": "what is a ratio",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:5.6",
+      "prealgebra-2e:5.6",
+      "prealgebra-2e:6.1",
+      "prealgebra-2e:5.6",
+      "prealgebra-2e:5.6"
+     ],
+     "search_ms": 6.3
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:5.6",
+      "prealgebra-2e:5.6",
+      "prealgebra-2e:5.6",
+      "prealgebra-2e:6.1",
+      "prealgebra-2e:5.6"
+     ],
+     "search_ms": 3.7
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:5.6",
+      "prealgebra-2e:5.6",
+      "prealgebra-2e:6.1",
+      "prealgebra-2e:5.6",
+      "prealgebra-2e:5.6"
+     ],
+     "search_ms": 7.1
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.6952335238456726
+  },
+  {
+   "id": "q12",
+   "kind": "answerable",
+   "question": "how do I solve 3x + 5 = 2x - 7",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:8.3",
+      "prealgebra-2e:8.3",
+      "prealgebra-2e:2.3",
+      "prealgebra-2e:8.1",
+      "elementary-algebra-2e:2.1"
+     ],
+     "search_ms": 8.8
+    },
+    "keyword": {
+     "rank": null,
+     "top": [
+      "elementary-algebra-2e:9.4",
+      "elementary-algebra-2e:5.2",
+      "elementary-algebra-2e:1.3",
+      "prealgebra-2e:3.2",
+      "elementary-algebra-2e:9.6"
+     ],
+     "search_ms": 12.9
+    },
+    "hybrid": {
+     "rank": 2,
+     "top": [
+      "prealgebra-2e:2.3",
+      "prealgebra-2e:8.3",
+      "elementary-algebra-2e:5.2",
+      "prealgebra-2e:8.3",
+      "elementary-algebra-2e:9.4"
+     ],
+     "search_ms": 22.2
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.6939367311464909
+  },
+  {
+   "id": "q13",
+   "kind": "answerable",
+   "question": "what is the distributive property",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:7.3",
+      "prealgebra-2e:7.3",
+      "prealgebra-2e:7.3",
+      "prealgebra-2e:10.6",
+      "prealgebra-2e:7.3"
+     ],
+     "search_ms": 5.3
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:7.3",
+      "prealgebra-2e:7.3",
+      "prealgebra-2e:10.4",
+      "prealgebra-2e:10.3",
+      "prealgebra-2e:10.5"
+     ],
+     "search_ms": 3.6
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:7.3",
+      "prealgebra-2e:7.3",
+      "prealgebra-2e:10.3",
+      "prealgebra-2e:7.4",
+      "prealgebra-2e:7.2"
+     ],
+     "search_ms": 7.2
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7379287325101348
+  },
+  {
+   "id": "q14",
+   "kind": "answerable",
+   "question": "how do you write 45000 in scientific notation",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:10.5",
+      "prealgebra-2e:10.5",
+      "elementary-algebra-2e:6.7",
+      "elementary-algebra-2e:6.7",
+      "prealgebra-2e:10.5"
+     ],
+     "search_ms": 11.5
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:10.5",
+      "elementary-algebra-2e:6.7",
+      "elementary-algebra-2e:6.7",
+      "prealgebra-2e:10.5",
+      "elementary-algebra-2e:6.7"
+     ],
+     "search_ms": 7.9
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:10.5",
+      "prealgebra-2e:10.5",
+      "elementary-algebra-2e:6.7",
+      "elementary-algebra-2e:6.7",
+      "elementary-algebra-2e:6.7"
+     ],
+     "search_ms": 15.2
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.6761592609597586
+  },
+  {
+   "id": "q15",
+   "kind": "answerable",
+   "question": "what does slope mean on a graph",
+   "modes": {
+    "vector": {
+     "rank": 2,
+     "top": [
+      "elementary-algebra-2e:4.4",
+      "prealgebra-2e:11.5",
+      "elementary-algebra-2e:4.4",
+      "elementary-algebra-2e:4.4",
+      "prealgebra-2e:11.5"
+     ],
+     "search_ms": 8.2
+    },
+    "keyword": {
+     "rank": 9,
+     "top": [
+      "elementary-algebra-2e:4.5",
+      "prealgebra-2e:5.5",
+      "elementary-algebra-2e:4.5",
+      "prealgebra-2e:5.5",
+      "elementary-algebra-2e:4.4"
+     ],
+     "search_ms": 8.6
+    },
+    "hybrid": {
+     "rank": 4,
+     "top": [
+      "elementary-algebra-2e:4.5",
+      "elementary-algebra-2e:4.4",
+      "elementary-algebra-2e:4.5",
+      "prealgebra-2e:11.5",
+      "elementary-algebra-2e:4.4"
+     ],
+     "search_ms": 18.9
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.732626026805585
+  },
+  {
+   "id": "q16",
+   "kind": "answerable",
+   "question": "if a shirt costs 20 dollars and sales tax is 8 percent how much do I pay",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:6.3",
+      "prealgebra-2e:6.3",
+      "prealgebra-2e:6.3",
+      "prealgebra-2e:6.2",
+      "prealgebra-2e:6.3"
+     ],
+     "search_ms": 6.7
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:6.3",
+      "prealgebra-2e:6.3",
+      "prealgebra-2e:6.2",
+      "prealgebra-2e:6.5",
+      "prealgebra-2e:6.3"
+     ],
+     "search_ms": 6.8
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:6.3",
+      "prealgebra-2e:6.3",
+      "prealgebra-2e:6.3",
+      "prealgebra-2e:6.3",
+      "prealgebra-2e:6.3"
+     ],
+     "search_ms": 13.2
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.6896520072014336
+  },
+  {
+   "id": "q17",
+   "kind": "answerable",
+   "question": "what's the difference between rational and irrational numbers",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:7.1",
+      "prealgebra-2e:7.1",
+      "prealgebra-2e:7.1",
+      "prealgebra-2e:7.1",
+      "prealgebra-2e:7.1"
+     ],
+     "search_ms": 9.9
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:7.1",
+      "prealgebra-2e:7.1",
+      "prealgebra-2e:7.1",
+      "prealgebra-2e:7.1",
+      "prealgebra-2e:2.4"
+     ],
+     "search_ms": 4.9
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:7.1",
+      "prealgebra-2e:7.1",
+      "prealgebra-2e:7.1",
+      "prealgebra-2e:7.1",
+      "prealgebra-2e:7.1"
+     ],
+     "search_ms": 9.3
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7097366202191617
+  },
+  {
+   "id": "q18",
+   "kind": "answerable",
+   "question": "how do you find the volume of a rectangular box",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:9.6",
+      "prealgebra-2e:9.6",
+      "prealgebra-2e:9.6",
+      "prealgebra-2e:9.6",
+      "prealgebra-2e:9.6"
+     ],
+     "search_ms": 8.4
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:9.6",
+      "prealgebra-2e:9.6",
+      "prealgebra-2e:9.6",
+      "prealgebra-2e:9.6",
+      "prealgebra-2e:6.2"
+     ],
+     "search_ms": 7.4
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:9.6",
+      "prealgebra-2e:9.6",
+      "prealgebra-2e:9.6",
+      "prealgebra-2e:9.6",
+      "prealgebra-2e:9.6"
+     ],
+     "search_ms": 15.8
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7023999691009521
+  },
+  {
+   "id": "q19",
+   "kind": "answerable",
+   "question": "how do I solve a system of two equations using substitution",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:5.2",
+      "elementary-algebra-2e:5.2",
+      "elementary-algebra-2e:5.2",
+      "elementary-algebra-2e:5.2",
+      "elementary-algebra-2e:5.2"
+     ],
+     "search_ms": 18.8
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:5.2",
+      "elementary-algebra-2e:5.1",
+      "elementary-algebra-2e:5.1",
+      "elementary-algebra-2e:5.1",
+      "elementary-algebra-2e:5.2"
+     ],
+     "search_ms": 18.4
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:5.2",
+      "elementary-algebra-2e:5.2",
+      "elementary-algebra-2e:5.2",
+      "elementary-algebra-2e:5.2",
+      "elementary-algebra-2e:5.2"
+     ],
+     "search_ms": 21.0
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7518619523007263
+  },
+  {
+   "id": "q20",
+   "kind": "answerable",
+   "question": "how do I factor x^2 + 5x + 6",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:7.2",
+      "elementary-algebra-2e:7.2",
+      "elementary-algebra-2e:7.2",
+      "elementary-algebra-2e:7.3",
+      "elementary-algebra-2e:7.2"
+     ],
+     "search_ms": 26.7
+    },
+    "keyword": {
+     "rank": 7,
+     "top": [
+      "elementary-algebra-2e:8.2",
+      "elementary-algebra-2e:7.4",
+      "elementary-algebra-2e:8.3",
+      "elementary-algebra-2e:8.2",
+      "elementary-algebra-2e:8.1"
+     ],
+     "search_ms": 16.5
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:7.2",
+      "elementary-algebra-2e:7.2",
+      "elementary-algebra-2e:7.2",
+      "elementary-algebra-2e:7.5",
+      "elementary-algebra-2e:7.5"
+     ],
+     "search_ms": 20.5
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7357569055847094
+  },
+  {
+   "id": "q21",
+   "kind": "answerable",
+   "question": "when should I use the quadratic formula and how does it work",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.4",
+      "elementary-algebra-2e:10.4"
+     ],
+     "search_ms": 16.7
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.3"
+     ],
+     "search_ms": 15.4
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.3"
+     ],
+     "search_ms": 25.8
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7179876779910234
+  },
+  {
+   "id": "q22",
+   "kind": "answerable",
+   "question": "how do I find the equation of a line that goes through two points",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:4.6",
+      "elementary-algebra-2e:4.6",
+      "elementary-algebra-2e:4.6",
+      "elementary-algebra-2e:4.6",
+      "elementary-algebra-2e:4.6"
+     ],
+     "search_ms": 16.3
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:4.6",
+      "elementary-algebra-2e:4.6",
+      "elementary-algebra-2e:4.6",
+      "elementary-algebra-2e:4.6",
+      "elementary-algebra-2e:4.6"
+     ],
+     "search_ms": 18.9
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:4.6",
+      "elementary-algebra-2e:4.6",
+      "elementary-algebra-2e:4.6",
+      "elementary-algebra-2e:4.6",
+      "elementary-algebra-2e:4.6"
+     ],
+     "search_ms": 22.0
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7323674719114631
+  },
+  {
+   "id": "q23",
+   "kind": "answerable",
+   "question": "what is slope-intercept form",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:4.5",
+      "elementary-algebra-2e:4.5",
+      "elementary-algebra-2e:4.5",
+      "elementary-algebra-2e:4.5",
+      "elementary-algebra-2e:4.6"
+     ],
+     "search_ms": 11.6
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:4.5",
+      "elementary-algebra-2e:4.5",
+      "elementary-algebra-2e:4.6",
+      "elementary-algebra-2e:4.5",
+      "elementary-algebra-2e:4.6"
+     ],
+     "search_ms": 5.5
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:4.5",
+      "elementary-algebra-2e:4.5",
+      "elementary-algebra-2e:4.5",
+      "elementary-algebra-2e:4.5",
+      "elementary-algebra-2e:4.5"
+     ],
+     "search_ms": 11.5
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7239803671836853
+  },
+  {
+   "id": "q24",
+   "kind": "answerable",
+   "question": "how do you simplify the square root of 50",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:9.2",
+      "elementary-algebra-2e:9.2",
+      "elementary-algebra-2e:9.3",
+      "elementary-algebra-2e:9.2",
+      "elementary-algebra-2e:1.8"
+     ],
+     "search_ms": 20.0
+    },
+    "keyword": {
+     "rank": 3,
+     "top": [
+      "elementary-algebra-2e:9.1",
+      "elementary-algebra-2e:9.5",
+      "elementary-algebra-2e:9.2",
+      "elementary-algebra-2e:1.8",
+      "elementary-algebra-2e:9.5"
+     ],
+     "search_ms": 11.6
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:9.2",
+      "elementary-algebra-2e:9.5",
+      "elementary-algebra-2e:1.8",
+      "elementary-algebra-2e:9.1",
+      "elementary-algebra-2e:9.2"
+     ],
+     "search_ms": 22.2
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7061723085097169
+  },
+  {
+   "id": "q25",
+   "kind": "answerable",
+   "question": "how do I solve 2x - 3 < 7 and why does the inequality sign sometimes flip",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:2.7",
+      "elementary-algebra-2e:2.7",
+      "elementary-algebra-2e:2.7",
+      "elementary-algebra-2e:2.7",
+      "elementary-algebra-2e:2.7"
+     ],
+     "search_ms": 10.5
+    },
+    "keyword": {
+     "rank": 2,
+     "top": [
+      "elementary-algebra-2e:9.4",
+      "elementary-algebra-2e:2.7",
+      "elementary-algebra-2e:5.6",
+      "elementary-algebra-2e:5.6",
+      "elementary-algebra-2e:2.7"
+     ],
+     "search_ms": 9.6
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:2.7",
+      "elementary-algebra-2e:2.7",
+      "elementary-algebra-2e:2.7",
+      "elementary-algebra-2e:2.7",
+      "elementary-algebra-2e:2.7"
+     ],
+     "search_ms": 17.6
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7136439935736648
+  },
+  {
+   "id": "q26",
+   "kind": "answerable",
+   "question": "what is the FOIL method",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:6.3",
+      "elementary-algebra-2e:6.3",
+      "elementary-algebra-2e:6.3",
+      "elementary-algebra-2e:6.3",
+      "elementary-algebra-2e:7.2"
+     ],
+     "search_ms": 10.8
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:6.3",
+      "elementary-algebra-2e:6.3",
+      "elementary-algebra-2e:7.3",
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:7.3"
+     ],
+     "search_ms": 4.1
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:6.3",
+      "elementary-algebra-2e:6.3",
+      "elementary-algebra-2e:6.3",
+      "elementary-algebra-2e:6.3",
+      "elementary-algebra-2e:6.3"
+     ],
+     "search_ms": 9.6
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7200630521793087
+  },
+  {
+   "id": "q27",
+   "kind": "answerable",
+   "question": "what is the difference of squares pattern",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:7.4",
+      "elementary-algebra-2e:6.4",
+      "elementary-algebra-2e:6.4",
+      "elementary-algebra-2e:7.4",
+      "elementary-algebra-2e:6.4"
+     ],
+     "search_ms": 25.1
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:7.4",
+      "elementary-algebra-2e:9.1",
+      "elementary-algebra-2e:10.2",
+      "elementary-algebra-2e:7.4",
+      "elementary-algebra-2e:1.8"
+     ],
+     "search_ms": 10.5
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:7.4",
+      "elementary-algebra-2e:6.4",
+      "elementary-algebra-2e:7.4",
+      "elementary-algebra-2e:6.4",
+      "elementary-algebra-2e:7.4"
+     ],
+     "search_ms": 26.0
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7640835274482828
+  },
+  {
+   "id": "q28",
+   "kind": "answerable",
+   "question": "how do I solve a problem about mixing two kinds of coffee that cost different amounts",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:3.3",
+      "elementary-algebra-2e:5.5",
+      "elementary-algebra-2e:5.5",
+      "elementary-algebra-2e:5.5",
+      "elementary-algebra-2e:5.4"
+     ],
+     "search_ms": 19.2
+    },
+    "keyword": {
+     "rank": 4,
+     "top": [
+      "elementary-algebra-2e:3.1",
+      "elementary-algebra-2e:3.1",
+      "elementary-algebra-2e:5.2",
+      "elementary-algebra-2e:3.3",
+      "elementary-algebra-2e:7.6"
+     ],
+     "search_ms": 21.7
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:3.3",
+      "elementary-algebra-2e:3.3",
+      "elementary-algebra-2e:5.5",
+      "elementary-algebra-2e:5.3",
+      "elementary-algebra-2e:2.2"
+     ],
+     "search_ms": 19.3
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7246488980635044
+  },
+  {
+   "id": "q29",
+   "kind": "answerable",
+   "question": "what does x to the power of 1/2 mean",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:9.8",
+      "elementary-algebra-2e:9.8",
+      "elementary-algebra-2e:9.7",
+      "elementary-algebra-2e:9.1",
+      "elementary-algebra-2e:9.8"
+     ],
+     "search_ms": 9.1
+    },
+    "keyword": {
+     "rank": 4,
+     "top": [
+      "elementary-algebra-2e:6.5",
+      "elementary-algebra-2e:8.2",
+      "elementary-algebra-2e:8.3",
+      "elementary-algebra-2e:9.8",
+      "elementary-algebra-2e:10.5"
+     ],
+     "search_ms": 8.6
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:9.8",
+      "elementary-algebra-2e:10.1",
+      "elementary-algebra-2e:9.8",
+      "elementary-algebra-2e:9.8",
+      "elementary-algebra-2e:6.5"
+     ],
+     "search_ms": 25.5
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.66113730304615
+  },
+  {
+   "id": "q30",
+   "kind": "answerable",
+   "question": "how do plants make their own food",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:5.1",
+      "concepts-biology:5.1",
+      "concepts-biology:3.3",
+      "concepts-biology:5.1",
+      "concepts-biology:5.1"
+     ],
+     "search_ms": 22.7
+    },
+    "keyword": {
+     "rank": 6,
+     "top": [
+      "concepts-biology:10.2",
+      "concepts-biology:14.4",
+      "concepts-biology:14.1",
+      "concepts-biology:14.1",
+      "concepts-biology:20.1"
+     ],
+     "search_ms": 13.5
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:5.1",
+      "concepts-biology:14.1",
+      "concepts-biology:3.3",
+      "concepts-biology:3.3",
+      "concepts-biology:14.4"
+     ],
+     "search_ms": 21.4
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.6907470226287842
+  },
+  {
+   "id": "q31",
+   "kind": "answerable",
+   "question": "what is the difference between mitosis and meiosis",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:7.2",
+      "concepts-biology:7.2",
+      "concepts-biology:7.2",
+      "concepts-biology:7.2",
+      "concepts-biology:7.0"
+     ],
+     "search_ms": 21.8
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:7.2",
+      "concepts-biology:7.2",
+      "concepts-biology:7.2",
+      "concepts-biology:7.2",
+      "concepts-biology:18.3"
+     ],
+     "search_ms": 17.4
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:7.2",
+      "concepts-biology:7.2",
+      "concepts-biology:7.2",
+      "concepts-biology:7.2",
+      "concepts-biology:18.3"
+     ],
+     "search_ms": 24.7
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7502137273677438
+  },
+  {
+   "id": "q32",
+   "kind": "answerable",
+   "question": "what does the mitochondria do in a cell",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:3.3",
+      "concepts-biology:4.3",
+      "concepts-biology:13.2",
+      "concepts-biology:4.3",
+      "concepts-biology:3.3"
+     ],
+     "search_ms": 23.8
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:3.3",
+      "concepts-biology:17.3",
+      "concepts-biology:6.2",
+      "concepts-biology:6.2",
+      "concepts-biology:3.3"
+     ],
+     "search_ms": 12.1
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:3.3",
+      "concepts-biology:13.2",
+      "concepts-biology:3.3",
+      "concepts-biology:3.3",
+      "concepts-biology:3.3"
+     ],
+     "search_ms": 24.4
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7247706867686122
+  },
+  {
+   "id": "q33",
+   "kind": "answerable",
+   "question": "why is water so important for living things",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:2.2",
+      "concepts-biology:2.2",
+      "concepts-biology:20.2",
+      "concepts-biology:21.1",
+      "concepts-biology:2.2"
+     ],
+     "search_ms": 26.1
+    },
+    "keyword": {
+     "rank": 2,
+     "top": [
+      "concepts-biology:20.2",
+      "concepts-biology:2.2",
+      "concepts-biology:3.5",
+      "concepts-biology:20.4",
+      "concepts-biology:20.4"
+     ],
+     "search_ms": 16.5
+    },
+    "hybrid": {
+     "rank": 2,
+     "top": [
+      "concepts-biology:20.2",
+      "concepts-biology:2.2",
+      "concepts-biology:2.2",
+      "concepts-biology:20.4",
+      "concepts-biology:3.5"
+     ],
+     "search_ms": 24.2
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7209647346405451
+  },
+  {
+   "id": "q34",
+   "kind": "answerable",
+   "question": "how does DNA make a copy of itself",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:9.2",
+      "concepts-biology:9.2",
+      "concepts-biology:9.2",
+      "concepts-biology:10.1",
+      "concepts-biology:9.2"
+     ],
+     "search_ms": 14.3
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:9.2",
+      "concepts-biology:9.2",
+      "concepts-biology:10.1",
+      "concepts-biology:9.2",
+      "concepts-biology:10.1"
+     ],
+     "search_ms": 6.0
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:9.2",
+      "concepts-biology:9.2",
+      "concepts-biology:9.2",
+      "concepts-biology:10.1",
+      "concepts-biology:10.1"
+     ],
+     "search_ms": 13.2
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7163770625816037
+  },
+  {
+   "id": "q35",
+   "kind": "answerable",
+   "question": "what is natural selection",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:11.2",
+      "concepts-biology:11.1",
+      "concepts-biology:11.1",
+      "concepts-biology:11.2",
+      "concepts-biology:11.1"
+     ],
+     "search_ms": 19.7
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:11.1",
+      "concepts-biology:11.1",
+      "concepts-biology:11.1",
+      "concepts-biology:11.1",
+      "concepts-biology:19.2"
+     ],
+     "search_ms": 9.4
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:11.1",
+      "concepts-biology:11.1",
+      "concepts-biology:11.1",
+      "concepts-biology:11.2",
+      "concepts-biology:11.1"
+     ],
+     "search_ms": 20.1
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.6830129027366638
+  },
+  {
+   "id": "q36",
+   "kind": "answerable",
+   "question": "how does energy move through a food chain",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:20.1",
+      "concepts-biology:20.1",
+      "concepts-biology:20.1",
+      "concepts-biology:20.1",
+      "concepts-biology:20.1"
+     ],
+     "search_ms": 22.4
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:20.1",
+      "concepts-biology:4.1",
+      "concepts-biology:4.1",
+      "concepts-biology:20.1",
+      "concepts-biology:4.1"
+     ],
+     "search_ms": 13.2
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:20.1",
+      "concepts-biology:20.1",
+      "concepts-biology:4.1",
+      "concepts-biology:20.1",
+      "concepts-biology:20.1"
+     ],
+     "search_ms": 28.8
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7423771619796806
+  },
+  {
+   "id": "q37",
+   "kind": "answerable",
+   "question": "what's the difference between prokaryotic and eukaryotic cells",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:3.2",
+      "concepts-biology:3.2",
+      "concepts-biology:13.1",
+      "concepts-biology:3.2",
+      "concepts-biology:3.3"
+     ],
+     "search_ms": 24.1
+    },
+    "keyword": {
+     "rank": 2,
+     "top": [
+      "concepts-biology:3.3",
+      "concepts-biology:3.2",
+      "concepts-biology:17.3",
+      "concepts-biology:6.2",
+      "concepts-biology:3.3"
+     ],
+     "search_ms": 16.8
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:3.2",
+      "concepts-biology:3.2",
+      "concepts-biology:3.2",
+      "concepts-biology:3.3",
+      "concepts-biology:3.3"
+     ],
+     "search_ms": 25.2
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7355934977531433
+  },
+  {
+   "id": "q38",
+   "kind": "answerable",
+   "question": "how do vaccines help the body fight a disease",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:17.3",
+      "concepts-biology:17.0",
+      "concepts-biology:17.3",
+      "concepts-biology:17.1",
+      "concepts-biology:17.3"
+     ],
+     "search_ms": 18.2
+    },
+    "keyword": {
+     "rank": null,
+     "top": [
+      "concepts-biology:3.0",
+      "concepts-biology:16.1",
+      "concepts-biology:16.6",
+      "concepts-biology:17.1",
+      "concepts-biology:17.2"
+     ],
+     "search_ms": 12.4
+    },
+    "hybrid": {
+     "rank": 2,
+     "top": [
+      "concepts-biology:17.1",
+      "concepts-biology:17.3",
+      "concepts-biology:17.1",
+      "concepts-biology:17.3",
+      "concepts-biology:17.1"
+     ],
+     "search_ms": 22.0
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7073578238487445
+  },
+  {
+   "id": "q39",
+   "kind": "answerable",
+   "question": "how does the heart pump blood around the body",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:16.3",
+      "concepts-biology:16.3",
+      "concepts-biology:16.3",
+      "concepts-biology:16.3",
+      "concepts-biology:16.3"
+     ],
+     "search_ms": 24.7
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:16.3",
+      "concepts-biology:16.3",
+      "concepts-biology:16.3",
+      "concepts-biology:16.3",
+      "concepts-biology:17.2"
+     ],
+     "search_ms": 15.9
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:16.3",
+      "concepts-biology:16.3",
+      "concepts-biology:16.3",
+      "concepts-biology:16.3",
+      "concepts-biology:16.3"
+     ],
+     "search_ms": 20.0
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7096728509469552
+  },
+  {
+   "id": "q40",
+   "kind": "answerable",
+   "question": "what are dominant and recessive traits",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:8.1",
+      "concepts-biology:8.2",
+      "concepts-biology:8.2",
+      "concepts-biology:8.1",
+      "concepts-biology:8.2"
+     ],
+     "search_ms": 22.1
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:8.1",
+      "concepts-biology:8.2",
+      "concepts-biology:8.2",
+      "concepts-biology:8.1",
+      "concepts-biology:8.3"
+     ],
+     "search_ms": 10.3
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:8.1",
+      "concepts-biology:8.2",
+      "concepts-biology:8.2",
+      "concepts-biology:8.1",
+      "concepts-biology:8.2"
+     ],
+     "search_ms": 19.9
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7401702404022217
+  },
+  {
+   "id": "q41",
+   "kind": "answerable",
+   "question": "how does osmosis work",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:3.5",
+      "concepts-biology:16.1",
+      "concepts-biology:3.5",
+      "concepts-biology:3.5",
+      "concepts-biology:16.1"
+     ],
+     "search_ms": 13.6
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:3.5",
+      "concepts-biology:1.2",
+      "concepts-biology:4.1",
+      "concepts-biology:2.1",
+      "concepts-biology:8.1"
+     ],
+     "search_ms": 5.8
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:3.5",
+      "concepts-biology:16.1",
+      "concepts-biology:3.5",
+      "concepts-biology:3.5",
+      "concepts-biology:3.6"
+     ],
+     "search_ms": 15.1
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7494374513626099
+  },
+  {
+   "id": "q42",
+   "kind": "answerable",
+   "question": "what is an enzyme",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:4.1",
+      "concepts-biology:4.1",
+      "concepts-biology:4.1",
+      "concepts-biology:4.1",
+      "concepts-biology:4.1"
+     ],
+     "search_ms": 21.7
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:4.1",
+      "concepts-biology:4.1",
+      "concepts-biology:4.1",
+      "concepts-biology:4.1",
+      "concepts-biology:4.1"
+     ],
+     "search_ms": 9.9
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:4.1",
+      "concepts-biology:4.1",
+      "concepts-biology:4.1",
+      "concepts-biology:4.1",
+      "concepts-biology:4.1"
+     ],
+     "search_ms": 17.2
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.703228235244751
+  },
+  {
+   "id": "q43",
+   "kind": "answerable",
+   "question": "what is a virus and is it alive",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:17.1",
+      "concepts-biology:17.1",
+      "concepts-biology:17.1",
+      "concepts-biology:17.1",
+      "concepts-biology:17.1"
+     ],
+     "search_ms": 11.0
+    },
+    "keyword": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:17.1",
+      "concepts-biology:17.1",
+      "concepts-biology:17.1",
+      "concepts-biology:17.1",
+      "concepts-biology:17.1"
+     ],
+     "search_ms": 4.2
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:17.1",
+      "concepts-biology:17.1",
+      "concepts-biology:17.1",
+      "concepts-biology:17.1",
+      "concepts-biology:17.1"
+     ],
+     "search_ms": 15.0
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7215464926226886
+  },
+  {
+   "id": "q44",
+   "kind": "answerable",
+   "question": "what is the difference between a population and a community in ecology",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:19.4",
+      "concepts-biology:1.1",
+      "concepts-biology:19.0",
+      "concepts-biology:19.1",
+      "concepts-biology:19.4"
+     ],
+     "search_ms": 30.3
+    },
+    "keyword": {
+     "rank": 2,
+     "top": [
+      "concepts-biology:19.2",
+      "concepts-biology:19.4",
+      "concepts-biology:11.1",
+      "concepts-biology:11.1",
+      "concepts-biology:19.2"
+     ],
+     "search_ms": 15.3
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:19.4",
+      "concepts-biology:19.1",
+      "concepts-biology:19.1",
+      "concepts-biology:19.4",
+      "concepts-biology:1.1"
+     ],
+     "search_ms": 22.8
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7008871257833926
+  },
+  {
+   "id": "q45",
+   "kind": "multilingual",
+   "question": "भिन्नों को भाग कैसे करते हैं?",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:4.2",
+      "prealgebra-2e:4.2",
+      "prealgebra-2e:4.3",
+      "prealgebra-2e:4.2",
+      "prealgebra-2e:4.5"
+     ],
+     "search_ms": 9.3
+    },
+    "keyword": {
+     "rank": null,
+     "top": [],
+     "search_ms": 13.4
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:4.2",
+      "prealgebra-2e:4.2",
+      "prealgebra-2e:4.3",
+      "prealgebra-2e:4.2",
+      "prealgebra-2e:4.5"
+     ],
+     "search_ms": 12.8
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.696947652283462
+  },
+  {
+   "id": "q46",
+   "kind": "multilingual",
+   "question": "¿Cómo resuelvo una ecuación cuadrática con la fórmula general?",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.4"
+     ],
+     "search_ms": 26.3
+    },
+    "keyword": {
+     "rank": 4,
+     "top": [
+      "elementary-algebra-2e:2.6",
+      "elementary-algebra-2e:2.6",
+      "elementary-algebra-2e:2.4",
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:2.5"
+     ],
+     "search_ms": 10.2
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:7.6",
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:10.3",
+      "elementary-algebra-2e:2.6"
+     ],
+     "search_ms": 23.5
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7180333779484077
+  },
+  {
+   "id": "q47",
+   "kind": "multilingual",
+   "question": "¿Cómo hacen las plantas la fotosíntesis?",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:5.1",
+      "concepts-biology:5.1",
+      "concepts-biology:5.1",
+      "concepts-biology:5.1",
+      "concepts-biology:5.2"
+     ],
+     "search_ms": 16.8
+    },
+    "keyword": {
+     "rank": null,
+     "top": [
+      "concepts-biology:1.1",
+      "concepts-biology:13.0",
+      "concepts-biology:13.3"
+     ],
+     "search_ms": 10.7
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:5.1",
+      "concepts-biology:1.1",
+      "concepts-biology:5.1",
+      "concepts-biology:13.0",
+      "concepts-biology:5.1"
+     ],
+     "search_ms": 24.5
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.6907075025998876
+  },
+  {
+   "id": "q48",
+   "kind": "multilingual",
+   "question": "डीएनए की संरचना क्या है?",
+   "modes": {
+    "vector": {
+     "rank": 2,
+     "top": [
+      "concepts-biology:2.3",
+      "concepts-biology:9.1",
+      "concepts-biology:9.1",
+      "concepts-biology:9.1",
+      "concepts-biology:9.1"
+     ],
+     "search_ms": 17.4
+    },
+    "keyword": {
+     "rank": null,
+     "top": [],
+     "search_ms": 9.3
+    },
+    "hybrid": {
+     "rank": 2,
+     "top": [
+      "concepts-biology:2.3",
+      "concepts-biology:9.1",
+      "concepts-biology:9.1",
+      "concepts-biology:9.1",
+      "concepts-biology:9.1"
+     ],
+     "search_ms": 31.0
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.7143673470993444
+  },
+  {
+   "id": "q49",
+   "kind": "multilingual",
+   "question": "¿Qué es el mínimo común múltiplo?",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:2.5"
+     ],
+     "search_ms": 11.5
+    },
+    "keyword": {
+     "rank": null,
+     "top": [],
+     "search_ms": 5.0
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:2.5",
+      "prealgebra-2e:4.5",
+      "prealgebra-2e:2.5"
+     ],
+     "search_ms": 18.9
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.6532363684914343
+  },
+  {
+   "id": "q50",
+   "kind": "multilingual",
+   "question": "Qu'est-ce que la sélection naturelle ?",
+   "modes": {
+    "vector": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:11.2",
+      "concepts-biology:11.1",
+      "concepts-biology:11.1",
+      "concepts-biology:11.1",
+      "concepts-biology:11.1"
+     ],
+     "search_ms": 22.5
+    },
+    "keyword": {
+     "rank": null,
+     "top": [],
+     "search_ms": 8.2
+    },
+    "hybrid": {
+     "rank": 1,
+     "top": [
+      "concepts-biology:11.2",
+      "concepts-biology:11.1",
+      "concepts-biology:11.1",
+      "concepts-biology:11.1",
+      "concepts-biology:11.1"
+     ],
+     "search_ms": 19.3
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.6583528111401618
+  },
+  {
+   "id": "q51",
+   "kind": "unsupported",
+   "question": "what is Newton's second law of motion",
+   "modes": {
+    "vector": {
+     "rank": null,
+     "top": [
+      "concepts-biology:4.1",
+      "concepts-biology:4.1",
+      "concepts-biology:2.1",
+      "concepts-biology:3.5",
+      "concepts-biology:8.2"
+     ],
+     "search_ms": 21.1
+    },
+    "keyword": {
+     "rank": null,
+     "top": [
+      "concepts-biology:8.2",
+      "concepts-biology:4.1",
+      "concepts-biology:8.2",
+      "concepts-biology:4.1",
+      "concepts-biology:4.1"
+     ],
+     "search_ms": 9.9
+    },
+    "hybrid": {
+     "rank": null,
+     "top": [
+      "concepts-biology:4.1",
+      "concepts-biology:8.2",
+      "concepts-biology:4.1",
+      "concepts-biology:4.1",
+      "concepts-biology:4.1"
+     ],
+     "search_ms": 20.1
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.5386136495240728
+  },
+  {
+   "id": "q52",
+   "kind": "unsupported",
+   "question": "how do you balance a chemical equation",
+   "modes": {
+    "vector": {
+     "rank": null,
+     "top": [
+      "concepts-biology:2.1",
+      "concepts-biology:2.1",
+      "concepts-biology:2.1",
+      "concepts-biology:2.1",
+      "concepts-biology:2.1"
+     ],
+     "search_ms": 27.3
+    },
+    "keyword": {
+     "rank": null,
+     "top": [
+      "concepts-biology:4.1",
+      "concepts-biology:21.1",
+      "concepts-biology:4.1",
+      "concepts-biology:4.1",
+      "concepts-biology:4.1"
+     ],
+     "search_ms": 11.3
+    },
+    "hybrid": {
+     "rank": null,
+     "top": [
+      "concepts-biology:2.1",
+      "concepts-biology:2.1",
+      "concepts-biology:4.1",
+      "concepts-biology:2.1",
+      "concepts-biology:5.1"
+     ],
+     "search_ms": 17.4
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.564650628843942
+  },
+  {
+   "id": "q53",
+   "kind": "unsupported",
+   "question": "why is the sky blue",
+   "modes": {
+    "vector": {
+     "rank": null,
+     "top": [
+      "concepts-biology:5.2",
+      "concepts-biology:5.2",
+      "concepts-biology:5.2",
+      "concepts-biology:5.2",
+      "concepts-biology:2.1"
+     ],
+     "search_ms": 13.2
+    },
+    "keyword": {
+     "rank": null,
+     "top": [
+      "concepts-biology:5.2",
+      "concepts-biology:5.2",
+      "concepts-biology:20.0",
+      "concepts-biology:13.1",
+      "concepts-biology:13.4"
+     ],
+     "search_ms": 5.4
+    },
+    "hybrid": {
+     "rank": null,
+     "top": [
+      "concepts-biology:5.2",
+      "concepts-biology:5.2",
+      "concepts-biology:13.1",
+      "concepts-biology:20.0",
+      "concepts-biology:21.1"
+     ],
+     "search_ms": 14.5
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.5897768246861498
+  },
+  {
+   "id": "q54",
+   "kind": "unsupported",
+   "question": "what is the speed of light",
+   "modes": {
+    "vector": {
+     "rank": null,
+     "top": [
+      "concepts-biology:5.2",
+      "concepts-biology:3.1",
+      "concepts-biology:5.2",
+      "concepts-biology:5.2",
+      "concepts-biology:3.1"
+     ],
+     "search_ms": 15.5
+    },
+    "keyword": {
+     "rank": null,
+     "top": [
+      "concepts-biology:5.2",
+      "concepts-biology:5.2",
+      "concepts-biology:5.2",
+      "concepts-biology:3.1",
+      "concepts-biology:5.2"
+     ],
+     "search_ms": 9.0
+    },
+    "hybrid": {
+     "rank": null,
+     "top": [
+      "concepts-biology:5.2",
+      "concepts-biology:5.2",
+      "concepts-biology:5.2",
+      "concepts-biology:3.1",
+      "concepts-biology:5.2"
+     ],
+     "search_ms": 14.9
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.5790614062267964
+  },
+  {
+   "id": "q55",
+   "kind": "unsupported",
+   "question": "what is the derivative of x squared",
+   "modes": {
+    "vector": {
+     "rank": null,
+     "top": [
+      "prealgebra-2e:2.2",
+      "elementary-algebra-2e:10.2",
+      "elementary-algebra-2e:10.2",
+      "elementary-algebra-2e:10.2",
+      "elementary-algebra-2e:7.4"
+     ],
+     "search_ms": 11.8
+    },
+    "keyword": {
+     "rank": null,
+     "top": [
+      "elementary-algebra-2e:10.2",
+      "elementary-algebra-2e:10.1",
+      "elementary-algebra-2e:10.1",
+      "elementary-algebra-2e:6.5",
+      "elementary-algebra-2e:8.2"
+     ],
+     "search_ms": 9.3
+    },
+    "hybrid": {
+     "rank": null,
+     "top": [
+      "elementary-algebra-2e:10.2",
+      "elementary-algebra-2e:10.2",
+      "elementary-algebra-2e:10.1",
+      "elementary-algebra-2e:9.2",
+      "prealgebra-2e:2.2"
+     ],
+     "search_ms": 26.2
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.5799337643246778
+  },
+  {
+   "id": "q56",
+   "kind": "unsupported",
+   "question": "what is the sine of 30 degrees",
+   "modes": {
+    "vector": {
+     "rank": null,
+     "top": [
+      "elementary-algebra-2e:4.4",
+      "elementary-algebra-2e:4.4",
+      "elementary-algebra-2e:4.4",
+      "elementary-algebra-2e:4.2",
+      "elementary-algebra-2e:4.4"
+     ],
+     "search_ms": 10.4
+    },
+    "keyword": {
+     "rank": null,
+     "top": [
+      "elementary-algebra-2e:1.1",
+      "elementary-algebra-2e:1.10",
+      "elementary-algebra-2e:3.5",
+      "elementary-algebra-2e:1.4",
+      "elementary-algebra-2e:3.1"
+     ],
+     "search_ms": 4.4
+    },
+    "hybrid": {
+     "rank": null,
+     "top": [
+      "elementary-algebra-2e:1.10",
+      "elementary-algebra-2e:5.2",
+      "elementary-algebra-2e:4.4",
+      "elementary-algebra-2e:1.1",
+      "elementary-algebra-2e:4.4"
+     ],
+     "search_ms": 10.2
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.5600764751434326
+  },
+  {
+   "id": "q57",
+   "kind": "unsupported",
+   "question": "how do you calculate a standard deviation",
+   "modes": {
+    "vector": {
+     "rank": null,
+     "top": [
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.5"
+     ],
+     "search_ms": 6.0
+    },
+    "keyword": {
+     "rank": null,
+     "top": [
+      "prealgebra-2e:5.7",
+      "prealgebra-2e:9.5",
+      "prealgebra-2e:9.6",
+      "prealgebra-2e:9.6",
+      "prealgebra-2e:6.4"
+     ],
+     "search_ms": 7.4
+    },
+    "hybrid": {
+     "rank": null,
+     "top": [
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.7",
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:5.5",
+      "prealgebra-2e:9.5"
+     ],
+     "search_ms": 9.8
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.6339166542241963
+  },
+  {
+   "id": "q58",
+   "kind": "unsupported",
+   "question": "how do volcanoes form",
+   "modes": {
+    "vector": {
+     "rank": null,
+     "top": [
+      "concepts-biology:19.4",
+      "concepts-biology:20.2",
+      "concepts-biology:20.2",
+      "concepts-biology:11.4",
+      "concepts-biology:21.3"
+     ],
+     "search_ms": 21.3
+    },
+    "keyword": {
+     "rank": null,
+     "top": [
+      "concepts-biology:6.4",
+      "concepts-biology:7.2",
+      "concepts-biology:18.2",
+      "concepts-biology:11.3",
+      "concepts-biology:2.3"
+     ],
+     "search_ms": 7.5
+    },
+    "hybrid": {
+     "rank": null,
+     "top": [
+      "concepts-biology:19.4",
+      "concepts-biology:20.2",
+      "concepts-biology:20.2",
+      "concepts-biology:18.2",
+      "concepts-biology:6.4"
+     ],
+     "search_ms": 14.8
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.5834672699292152
+  },
+  {
+   "id": "q59",
+   "kind": "unsupported",
+   "question": "how do you find the determinant of a 2 by 2 matrix",
+   "modes": {
+    "vector": {
+     "rank": null,
+     "top": [
+      "elementary-algebra-2e:5.3",
+      "elementary-algebra-2e:6.3",
+      "elementary-algebra-2e:6.3",
+      "elementary-algebra-2e:6.4",
+      "elementary-algebra-2e:5.3"
+     ],
+     "search_ms": 10.4
+    },
+    "keyword": {
+     "rank": null,
+     "top": [
+      "elementary-algebra-2e:6.1",
+      "elementary-algebra-2e:8.2",
+      "elementary-algebra-2e:7.4",
+      "elementary-algebra-2e:7.4",
+      "elementary-algebra-2e:9.3"
+     ],
+     "search_ms": 11.7
+    },
+    "hybrid": {
+     "rank": null,
+     "top": [
+      "elementary-algebra-2e:7.4",
+      "elementary-algebra-2e:5.3",
+      "elementary-algebra-2e:6.1",
+      "elementary-algebra-2e:6.3",
+      "elementary-algebra-2e:8.2"
+     ],
+     "search_ms": 25.6
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.587475895881657
+  },
+  {
+   "id": "q60",
+   "kind": "unsupported",
+   "question": "what causes the seasons on Earth",
+   "modes": {
+    "vector": {
+     "rank": null,
+     "top": [
+      "concepts-biology:20.3",
+      "concepts-biology:20.3",
+      "concepts-biology:21.1",
+      "concepts-biology:20.2",
+      "concepts-biology:16.1"
+     ],
+     "search_ms": 80.3
+    },
+    "keyword": {
+     "rank": null,
+     "top": [
+      "concepts-biology:13.1",
+      "concepts-biology:21.3",
+      "concepts-biology:19.3",
+      "concepts-biology:13.1",
+      "concepts-biology:10.3"
+     ],
+     "search_ms": 13.1
+    },
+    "hybrid": {
+     "rank": null,
+     "top": [
+      "concepts-biology:21.3",
+      "concepts-biology:21.2",
+      "concepts-biology:21.2",
+      "concepts-biology:20.1",
+      "concepts-biology:12.1"
+     ],
+     "search_ms": 26.0
+    }
+   },
+   "in_scope": true,
+   "top_score": 0.57790318595786
+  },
+  {
+   "id": "q61",
+   "kind": "no_corpus",
+   "question": "what is a metaphor",
+   "modes": {
+    "vector": {
+     "rank": null,
+     "top": [],
+     "search_ms": 0.0
+    },
+    "keyword": {
+     "rank": null,
+     "top": [],
+     "search_ms": 0.0
+    },
+    "hybrid": {
+     "rank": null,
+     "top": [],
+     "search_ms": 0.0
+    }
+   },
+   "in_scope": false,
+   "top_score": null
+  },
+  {
+   "id": "q62",
+   "kind": "no_corpus",
+   "question": "how do you multiply 23 by 4",
+   "modes": {
+    "vector": {
+     "rank": null,
+     "top": [],
+     "search_ms": 0.0
+    },
+    "keyword": {
+     "rank": null,
+     "top": [],
+     "search_ms": 0.0
+    },
+    "hybrid": {
+     "rank": null,
+     "top": [],
+     "search_ms": 0.0
+    }
+   },
+   "in_scope": false,
+   "top_score": null
+  }
+ ]
+}
