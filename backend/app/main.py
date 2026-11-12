@@ -69,6 +69,9 @@ def create_app(
 ) -> FastAPI:
     project = os.environ.get("GOOGLE_CLOUD_PROJECT")
     limiter = RateLimiter(int(os.environ.get("RATE_LIMIT_PER_MIN", "20")))
+    # Ceiling on model calls per instance per hour, whoever sends them: with
+    # max-instances=1 this bounds what an abusive client can spend.
+    hourly = RateLimiter(int(os.environ.get("MAX_MODEL_CALLS_PER_HOUR", "300")), window_s=3600)
     idempotency = IdempotencyCache()
     pool = None
     if retriever is None and (url := database_url()):
@@ -120,6 +123,20 @@ def create_app(
             )
         return response
 
+    def rate_key(request: Request) -> str:
+        """Caller IP. The device header is chosen by the client, so it can't be the limit key."""
+        forwarded = request.headers.get("x-forwarded-for", "")
+        ip = forwarded.split(",")[0].strip() if forwarded else ""
+        return "ip:" + (ip or (request.client.host if request.client else "unknown"))
+
+    def allowed(request: Request) -> str | None:
+        if not limiter.allow(rate_key(request)):
+            return "rate_limited"
+        if not hourly.allow("all"):
+            request.state.log["hourly_cap_hit"] = True
+            return "busy"
+        return None
+
     def client_key(request: Request) -> str:
         device = request.headers.get("x-device-id")
         if device:
@@ -160,8 +177,8 @@ def create_app(
             request.state.log["idempotent_replay"] = True
             return cached
 
-        if not limiter.allow(key):
-            return error(429, "rate_limited", rid)
+        if (blocked := allowed(request)) is not None:
+            return error(429, blocked, rid)
 
         retrieval, grounding = None, "none"
         model_question = body.question
@@ -238,8 +255,8 @@ def create_app(
     @app.post("/v1/quiz", response_model=QuizResponse, response_model_by_alias=True)
     async def quiz(body: QuizRequest, request: Request):
         rid = request.state.request_id
-        if not limiter.allow(client_key(request)):
-            return error(429, "rate_limited", rid)
+        if (blocked := allowed(request)) is not None:
+            return error(429, blocked, rid)
         prompt = build_quiz_prompt(body.subject, body.grade, body.language, body.explanation)
         try:
             result = await llm.generate(

@@ -130,14 +130,14 @@ Project `edureach-api-kb` on the personal Gmail account (no organization), billi
 
 | Resource | Setting | Cost |
 |---|---|---|
-| Cloud Run `edureach-api` | public since Nov 12 (`allUsers` invoker, at Kushal's request; per-device rate limit 20/min), min 0 / max 2 instances, 512 MiB, service account `edureach-api` (Vertex user, Cloud SQL client, log writer, access to one secret) | free tier |
+| Cloud Run `edureach-api` | public since Nov 12 (`allUsers` invoker, at Kushal's request); max 1 instance, 10 concurrent requests; rate limit 20/min per caller IP and 300 model calls/hour per instance (`MAX_MODEL_CALLS_PER_HOUR`); 512 MiB; service account `edureach-api` (Vertex user, Cloud SQL client, log writer, access to one secret) | free tier; worst case under abuse about $0.60/hour |
 | Cloud SQL `edureach-db` | Postgres 17, `db-f1-micro`, 10 GB HDD, zonal, no backups, no storage auto-increase | about $0.28 per day while running |
 | Secret Manager | `edureach-database-url` (read by the service), `edureach-db-password` (used for local ingest) | free tier |
 | Artifact Registry | cleanup policy keeps the 2 newest images | under free tier |
 | Budget `EduReach hard cap 20 USD` | yearly, **excludes credits** (counts gross usage), emails at 25/50/75/100% | |
 | Kill switch `budget-guard` | Cloud Run function on the budget's Pub/Sub topic; at 100% it unlinks billing from the project, which stops everything. Tested Nov 12 with a fake $20 alert: billing turned off within 10 s, then re-linked | free tier |
 
-Budget data lags by hours, so spending can pass $20 slightly before the switch fires. During the free trial, Google can't charge the card unless the account is manually upgraded.
+Budget data lags by hours, so spending can pass $20 slightly before the switch fires. Only `edureach-api-kb` is linked to the billing account; the auto-created "My First Project" was unlinked on Nov 12. During the free trial, Google can't charge the card unless the account is manually upgraded.
 
 **Making the API public** (done Nov 12). To make it private again, use `remove-iam-policy-binding` with the same arguments:
 

@@ -125,3 +125,17 @@ def test_missing_credentials_is_503_and_logged(capsys):
     assert res.json()["error"] == "backend_misconfigured"
     log = json.loads(capsys.readouterr().out.strip().splitlines()[-1])
     assert log["status"] == 503 and "credentials" in log["error"]
+
+
+def test_rate_limit_ignores_changing_device_ids(monkeypatch):
+    client, _ = make({"gemini-3.1-flash-lite": [response("1"), response("2"), response("3")]}, monkeypatch, rate=2)
+    codes = [client.post("/v1/ask", json=ASK, headers={"x-device-id": f"spoof-{i}"}).status_code for i in range(3)]
+    assert codes == [200, 200, 429]
+
+
+def test_hourly_cap_applies_across_callers(monkeypatch):
+    monkeypatch.setenv("MAX_MODEL_CALLS_PER_HOUR", "2")
+    client, _ = make({"gemini-3.1-flash-lite": [response("1"), response("2")]})
+    res = [client.post("/v1/ask", json=ASK, headers={"x-forwarded-for": f"10.0.0.{i}"}) for i in range(3)]
+    assert [r.status_code for r in res] == [200, 200, 429]
+    assert res[2].json()["error"] == "busy"
