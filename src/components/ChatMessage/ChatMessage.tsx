@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   ActivityIndicator,
+  Linking,
   Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
@@ -15,6 +16,11 @@ const MODEL_LABEL: Record<string, string> = {
   'gemini-2.5-flash': '⚡ Fast',
   'gemma-4-26b-a4b-it': '🧠 Smart',
   'gemma-4-31b-it': '🏆 Expert',
+  // v2 backend models (backend/app/models.py)
+  'gemini-3.1-flash-lite': '⚡ Fast',
+  'gemini-3.5-flash-lite': '⚡ Fast',
+  'gemma-4-26b-a4b-it-maas': '🧠 Smart',
+  'gemini-3.8-flash': '🏆 Expert',
 };
 
 function formatTime(ts: number): string {
@@ -90,7 +96,7 @@ export const ChatMessage = React.memo(function ChatMessage({
                   ]}
                 >
                   {MODEL_LABEL[item.actualModel] ?? item.actualModel}
-                  {item.usedFallback ? ' (Expert unavailable)' : ''}
+                  {item.usedFallback ? ' (fallback)' : ''}
                 </Text>
               </View>
             )}
@@ -104,6 +110,29 @@ export const ChatMessage = React.memo(function ChatMessage({
             ) : (
               <SimpleMarkdown>{item.content}</SimpleMarkdown>
             )}
+            {!isUser && item.sources && item.sources.length > 0 && (
+              <View style={styles.sources}>
+                {item.sources.map((s) => (
+                  <TouchableOpacity
+                    key={s.url + s.sectionId}
+                    onPress={() => Linking.openURL(s.url)}
+                    accessibilityRole="link"
+                  >
+                    <Text style={styles.sourceText}>
+                      📖 {s.book} §{s.sectionId} {s.title}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
+            {!isUser &&
+              (item.grounding === 'insufficient' ||
+                item.grounding === 'out_of_scope' ||
+                item.grounding === 'unavailable') && (
+                <Text style={styles.noSourceText}>
+                  Not from your textbook. Check with your teacher.
+                </Text>
+              )}
             {item.pending && (
               <Text style={styles.pendingLabel}>
                 ⏳ Queued — will send when online

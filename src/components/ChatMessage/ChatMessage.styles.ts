@@ -86,6 +86,16 @@ export const styles = StyleSheet.create({
   modelBadgeText: { fontSize: 11, color: TEXT_LO, fontWeight: '600' },
   modelBadgeTextFallback: { color: '#92400E' },
 
+  sources: {
+    marginTop: 8,
+    paddingTop: 6,
+    borderTopWidth: 1,
+    borderTopColor: SURFACE,
+    gap: 4,
+  },
+  sourceText: { fontSize: 12, color: INDIGO, fontWeight: '600' },
+  noSourceText: { fontSize: 11, color: TEXT_LO, marginTop: 6, fontStyle: 'italic' },
+
   quizWrapper: {
     marginTop: 8,
     width: '90%',

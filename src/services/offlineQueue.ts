@@ -1,6 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { GemmaMessage } from './gemmaService';
-import { Grade, QueuedQuestion, Subject } from '../types';
+import { Grade, QueuedQuestion, SnapshotMessage, Subject } from '../types';
 
 const QUEUE_KEY = 'edureach:offline_queue';
 const MAX_QUEUE_SIZE = 20; // prevent unbounded growth
@@ -9,7 +8,7 @@ export async function enqueueQuestion(
   subject: Subject,
   grade: Grade,
   question: string,
-  historySnapshot: GemmaMessage[],
+  historySnapshot: SnapshotMessage[],
 ): Promise<QueuedQuestion> {
   const entry: QueuedQuestion = {
     id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
