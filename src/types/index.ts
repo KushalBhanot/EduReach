@@ -17,6 +17,31 @@ export type Language =
 
 export type MessageRole = 'user' | 'assistant';
 
+/**
+ * Conversation history as stored in queued questions. The shape is kept from v1
+ * (Gemini's wire format) so items queued by an older app version still replay.
+ */
+export interface SnapshotMessage {
+  role: 'user' | 'model';
+  parts: { text: string }[];
+}
+
+/** A textbook passage the answer cites (from the backend's retrieval step). */
+export interface Source {
+  book: string;
+  sectionId: string;
+  title: string;
+  url: string;
+}
+
+/**
+ * How an answer relates to the textbook corpus (backend/app/schemas.py):
+ * cited, uncited, insufficient (passages didn't cover it), out_of_scope
+ * (no book for this subject/grade or topic), unavailable (retrieval failed),
+ * none (retrieval not configured).
+ */
+export type Grounding = 'cited' | 'uncited' | 'insufficient' | 'out_of_scope' | 'unavailable' | 'none';
+
 export interface QuizQuestion {
   question: string;
   options: [string, string, string, string];
@@ -33,6 +58,8 @@ export interface Message {
   thinking?: string;
   actualModel?: string;
   usedFallback?: boolean;
+  sources?: Source[];
+  grounding?: Grounding;
   quiz?: QuizQuestion[]; // populated when this message has a quiz attached
   quizAnswers?: Record<number, number>; // questionIndex -> chosen option index
 }
@@ -43,7 +70,7 @@ export interface QueuedQuestion {
   grade: Grade;
   question: string;
   timestamp: number;
-  historySnapshot: import('../services/gemmaService').GemmaMessage[];
+  historySnapshot: SnapshotMessage[];
 }
 
 export interface ProgressEntry {

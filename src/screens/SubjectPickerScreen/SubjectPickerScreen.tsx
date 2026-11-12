@@ -6,7 +6,7 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { MODEL_CONFIG, LANGUAGE_CONFIG } from '../../services/gemmaService';
+import { MODEL_CONFIG, LANGUAGE_CONFIG } from '../../config/models';
 import { getProgress } from '../../services/progressService';
 import { getStreak } from '../../services/streakService';
 import {

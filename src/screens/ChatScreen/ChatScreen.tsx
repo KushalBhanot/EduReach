@@ -1,8 +1,6 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   ActivityIndicator,
-  Alert,
   Clipboard,
   FlatList,
   KeyboardAvoidingView,
@@ -16,139 +14,46 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { ChatInput } from '../../components/ChatInput/ChatInput';
 import { ChatMessage } from '../../components/ChatMessage/ChatMessage';
 import { OfflineBanner } from '../../components/OfflineBanner/OfflineBanner';
+import { useChat } from '../../hooks/useChat';
 import { useNetworkStatus } from '../../hooks/useNetworkStatus';
-import {
-  GemmaMessage,
-  MODEL_CONFIG,
-  LANGUAGE_CONFIG,
-  QuotaExceededError,
-  askGemma,
-} from '../../services/gemmaService';
-import { generateQuiz } from '../../services/quizService';
-import { recordActivity } from '../../services/streakService';
-import {
-  enqueueQuestion,
-  getQueue,
-  removeFromQueue,
-} from '../../services/offlineQueue';
-import { recordQuestion } from '../../services/progressService';
+import { LANGUAGE_CONFIG, MODEL_CONFIG } from '../../config/models';
 import { ChatScreenProps, Message } from '../../types';
 import {
-  styles,
   BG,
   INDIGO,
   SURFACE,
   TEXT_HI,
   TEXT_LO,
+  styles,
 } from './ChatScreen.styles';
-
-const CHAT_HISTORY_KEY = (subject: string, grade: number) =>
-  `edureach:chat:${subject}:grade${grade}`;
-
-function buildGemmaHistory(messages: Message[]): GemmaMessage[] {
-  return messages
-    .filter((m) => !m.pending)
-    .map((m) => ({
-      role: m.role === 'user' ? 'user' : 'model',
-      parts: [{ text: m.content }],
-    }));
-}
 
 export function ChatScreen({ navigation, route }: ChatScreenProps) {
   const { subject, grade, model, language } = route.params;
   const { isOnline } = useNetworkStatus();
-  const storageKey = CHAT_HISTORY_KEY(subject, grade);
-  const isGemmaModel = MODEL_CONFIG[model].isGemma;
+  const showDeepThinking = MODEL_CONFIG[model].supportsDeepThinking;
+  const listRef = useRef<FlatList>(null);
 
-  const [messages, setMessages] = useState<Message[]>([]);
+  // UI-only state
   const [input, setInput] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [isQuizLoading, setIsQuizLoading] = useState(false);
-  const [queueLength, setQueueLength] = useState(0);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [deepThinking, setDeepThinking] = useState(false);
   const [expandedThinking, setExpandedThinking] = useState<
     Record<string, boolean>
   >({});
-  const [quizAnswers, setQuizAnswers] = useState<
-    Record<string, Record<number, number>>
-  >({});
-  const listRef = useRef<FlatList>(null);
 
-  // Load persisted chat history and pending queue count on mount
-  useEffect(() => {
-    AsyncStorage.getItem(storageKey).then((raw) => {
-      if (raw) setMessages(JSON.parse(raw));
-    });
-    getQueue().then((q) =>
-      setQueueLength(q.filter((i) => i.subject === subject).length),
-    );
-  }, [storageKey, subject]);
-
-  // Persist messages whenever they change
-  useEffect(() => {
-    if (messages.length > 0)
-      AsyncStorage.setItem(storageKey, JSON.stringify(messages));
-  }, [messages, storageKey]);
-
-  // Flush queued messages when coming back online
-  useEffect(() => {
-    if (!isOnline) return;
-    (async () => {
-      const queue = await getQueue();
-      const sq = queue.filter(
-        (q) => q.subject === subject && q.grade === grade,
-      );
-      if (!sq.length) return;
-      for (const item of sq) {
-        setMessages((prev) =>
-          prev.map((m) => (m.id === item.id ? { ...m, pending: false } : m)),
-        );
-        try {
-          const parsed = await askGemma(
-            subject,
-            grade,
-            language,
-            model,
-            item.historySnapshot,
-            item.question,
-          );
-          setMessages((prev) => [
-            ...prev,
-            {
-              id: item.id + '-reply',
-              role: 'assistant',
-              content: parsed.answer,
-              thinking: parsed.thinking ?? undefined,
-              actualModel: parsed.actualModel,
-              usedFallback: parsed.usedFallback,
-              timestamp: Date.now(),
-            },
-          ]);
-          await removeFromQueue(item.id);
-          setQueueLength((n) => Math.max(0, n - 1));
-        } catch (e) {
-          console.warn('Flush failed:', e);
-        }
-      }
-    })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOnline]);
-
-  const clearHistory = useCallback(async () => {
-    Alert.alert('Clear chat?', 'All messages in this chat will be deleted.', [
-      { text: 'Cancel', style: 'cancel' },
-      {
-        text: 'Clear',
-        style: 'destructive',
-        onPress: async () => {
-          await AsyncStorage.removeItem(storageKey);
-          setMessages([]);
-          setQuizAnswers({});
-        },
-      },
-    ]);
-  }, [storageKey]);
+  // All chat domain logic
+  const {
+    messages,
+    isLoading,
+    isQuizLoading,
+    queueLength,
+    quizAnswers,
+    sendMessage,
+    clearHistory,
+    explainDifferently,
+    handleQuizMe,
+    handleQuizAnswer,
+  } = useChat({ subject, grade, model, language, isOnline, deepThinking });
 
   const copyToClipboard = useCallback((text: string, id: string) => {
     Clipboard.setString(text);
@@ -156,80 +61,16 @@ export function ChatScreen({ navigation, route }: ChatScreenProps) {
     setTimeout(() => setCopiedId(null), 2000);
   }, []);
 
-  const explainDifferently = useCallback(async () => {
-    if (isLoading || !isOnline) return;
-    setIsLoading(true);
-    try {
-      const parsed = await askGemma(
-        subject,
-        grade,
-        language,
-        model,
-        buildGemmaHistory(messages),
-        'Please explain that differently using a different example or analogy.',
-        deepThinking,
-      );
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: Date.now() + '-re',
-          role: 'assistant',
-          content: parsed.answer,
-          thinking: parsed.thinking ?? undefined,
-          actualModel: parsed.actualModel,
-          usedFallback: parsed.usedFallback,
-          timestamp: Date.now(),
-        },
-      ]);
-    } catch (e) {
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: `${Date.now()}-err`,
-          role: 'assistant',
-          timestamp: Date.now(),
-          content:
-            e instanceof QuotaExceededError
-              ? "You've reached today's free AI limit. Come back tomorrow! 🌙"
-              : "Sorry, I couldn't connect right now. Try again in a moment!",
-        },
-      ]);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [isLoading, isOnline, messages, subject, grade, language, model, deepThinking]);
-
-  const handleQuizMe = useCallback(
-    async (messageId: string, explanation: string) => {
-      if (isQuizLoading || !isOnline) return;
-      setIsQuizLoading(true);
-      try {
-        const quiz = await generateQuiz(subject, grade, language, explanation);
-        setMessages((prev) =>
-          prev.map((m) => (m.id === messageId ? { ...m, quiz } : m)),
-        );
-      } catch (e) {
-        Alert.alert('Could not generate quiz', 'Try again in a moment.');
-      } finally {
-        setIsQuizLoading(false);
-      }
-    },
-    [isQuizLoading, isOnline, subject, grade, language],
-  );
-
-  const handleQuizAnswer = useCallback(
-    (messageId: string, qIdx: number, oIdx: number) => {
-      setQuizAnswers((prev) => ({
-        ...prev,
-        [messageId]: { ...(prev[messageId] ?? {}), [qIdx]: oIdx },
-      }));
-    },
-    [],
-  );
-
   const handleToggleThinking = useCallback((id: string) => {
     setExpandedThinking((prev) => ({ ...prev, [id]: !prev[id] }));
   }, []);
+
+  const handleSendMessage = useCallback(async () => {
+    const text = input.trim();
+    if (!text) return;
+    setInput('');
+    await sendMessage(text);
+  }, [input, sendMessage]);
 
   // Configure navigation header
   useEffect(() => {
@@ -245,7 +86,7 @@ export function ChatScreen({ navigation, route }: ChatScreenProps) {
             {MODEL_CONFIG[model].emoji}
             {LANGUAGE_CONFIG[language].flag}
           </Text>
-          {isGemmaModel && (
+          {showDeepThinking && (
             <Switch
               value={deepThinking}
               onValueChange={setDeepThinking}
@@ -275,71 +116,8 @@ export function ChatScreen({ navigation, route }: ChatScreenProps) {
     model,
     language,
     deepThinking,
-    isGemmaModel,
+    showDeepThinking,
   ]);
-
-  const sendMessage = useCallback(async () => {
-    const text = input.trim();
-    if (!text || isLoading) return;
-    setInput('');
-
-    const userMsg: Message = {
-      id: `${Date.now()}`,
-      role: 'user',
-      content: text,
-      timestamp: Date.now(),
-      pending: !isOnline,
-    };
-    setMessages((prev) => [...prev, userMsg]);
-    await recordQuestion(subject, text);
-    await recordActivity();
-
-    if (!isOnline) {
-      await enqueueQuestion(subject, grade, text, buildGemmaHistory(messages));
-      setQueueLength((n) => n + 1);
-      return;
-    }
-
-    setIsLoading(true);
-    try {
-      const parsed = await askGemma(
-        subject,
-        grade,
-        language,
-        model,
-        buildGemmaHistory(messages),
-        text,
-        deepThinking,
-      );
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: `${Date.now()}-reply`,
-          role: 'assistant',
-          content: parsed.answer,
-          thinking: parsed.thinking ?? undefined,
-          actualModel: parsed.actualModel,
-          usedFallback: parsed.usedFallback,
-          timestamp: Date.now(),
-        },
-      ]);
-    } catch (e) {
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: `${Date.now()}-err`,
-          role: 'assistant',
-          timestamp: Date.now(),
-          content:
-            e instanceof QuotaExceededError
-              ? "You've reached today's free AI limit. Come back tomorrow! 🌙"
-              : "Sorry, I couldn't connect right now. Try again in a moment!",
-        },
-      ]);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [input, isLoading, isOnline, messages, subject, grade, language, model, deepThinking]);
 
   const renderItem = useCallback(
     ({ item, index }: { item: Message; index: number }) => {
@@ -380,7 +158,7 @@ export function ChatScreen({ navigation, route }: ChatScreenProps) {
     <SafeAreaView style={styles.safe} edges={['bottom']}>
       {!isOnline && <OfflineBanner queueLength={queueLength} />}
 
-      {deepThinking && isGemmaModel && (
+      {deepThinking && showDeepThinking && (
         <View style={styles.deepThinkingBanner}>
           <Text style={styles.deepThinkingText}>
             🧩 Deep Thinking ON — tap ▸ on any response to see reasoning
@@ -432,7 +210,7 @@ export function ChatScreen({ navigation, route }: ChatScreenProps) {
         <ChatInput
           input={input}
           onChangeText={setInput}
-          onSubmit={sendMessage}
+          onSubmit={handleSendMessage}
           isLoading={isLoading}
           placeholder={`Ask a Grade ${grade} ${subject} question…`}
         />
