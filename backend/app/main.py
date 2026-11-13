@@ -9,6 +9,7 @@ With DATABASE_URL set, /v1/ask retrieves textbook passages from
 Postgres/pgvector and returns cited sources (app/rag.py).
 """
 
+import ipaddress
 import os
 import time
 import uuid
@@ -123,11 +124,35 @@ def create_app(
             )
         return response
 
+    # Proxies append the address they saw to the RIGHT of X-Forwarded-For; anything to
+    # the left can be sent by the client. So the caller is the entry TRUSTED_PROXY_HOPS
+    # from the right (Cloud Run's front end appends one; verified live, see GCP_SETUP.md).
+    # 0 ignores the header (local runs with no proxy).
+    trusted_hops = int(os.environ.get("TRUSTED_PROXY_HOPS", "1"))
+    log_forwarded = os.environ.get("LOG_FORWARDED") == "1"  # temporary diagnostics only
+
+    def caller_ip(request: Request) -> str:
+        entries = [x.strip() for x in request.headers.get("x-forwarded-for", "").split(",") if x.strip()]
+        if log_forwarded:
+            request.state.log["xff_entries"] = entries
+        if trusted_hops > 0 and len(entries) >= trusted_hops:
+            return entries[-trusted_hops]
+        return request.client.host if request.client else "unknown"
+
     def rate_key(request: Request) -> str:
-        """Caller IP. The device header is chosen by the client, so it can't be the limit key."""
-        forwarded = request.headers.get("x-forwarded-for", "")
-        ip = forwarded.split(",")[0].strip() if forwarded else ""
-        return "ip:" + (ip or (request.client.host if request.client else "unknown"))
+        """Caller IP. The device header is chosen by the client, so it can't be the limit key.
+
+        IPv6 callers are grouped by /64: one subscriber usually controls a whole /64, so
+        limiting single addresses would let them rotate past the limit.
+        """
+        ip = caller_ip(request)
+        try:
+            addr = ipaddress.ip_address(ip)
+        except ValueError:
+            return "ip:" + ip
+        if addr.version == 6:
+            return "ip6:" + str(ipaddress.ip_network(f"{addr}/64", strict=False))
+        return "ip:" + str(addr)
 
     def allowed(request: Request) -> str | None:
         if not limiter.allow(rate_key(request)):

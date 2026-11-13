@@ -130,7 +130,7 @@ Project `edureach-api-kb` on the personal Gmail account (no organization), billi
 
 | Resource | Setting | Cost |
 |---|---|---|
-| Cloud Run `edureach-api` | public since Nov 12 (`allUsers` invoker, at Kushal's request); max 1 instance, 10 concurrent requests; rate limit 20/min per caller IP and 300 model calls/hour per instance (`MAX_MODEL_CALLS_PER_HOUR`); 512 MiB; service account `edureach-api` (Vertex user, Cloud SQL client, log writer, access to one secret) | free tier; worst case under abuse about $0.60/hour |
+| Cloud Run `edureach-api` | public since Nov 12 (`allUsers` invoker, at Kushal's request); max 1 instance, 10 concurrent requests; rate limit 20/min per caller IP (read from the right end of `X-Forwarded-For`, `TRUSTED_PROXY_HOPS=1`; IPv6 grouped by /64) and 300 model calls/hour per instance (`MAX_MODEL_CALLS_PER_HOUR`); 512 MiB; service account `edureach-api` (Vertex user, Cloud SQL client, log writer, access to one secret) | free tier; worst case under abuse about $0.60/hour |
 | Cloud SQL `edureach-db` | Postgres 17, `db-f1-micro`, 10 GB HDD, zonal, no backups, no storage auto-increase | about $0.28 per day while running |
 | Secret Manager | `edureach-database-url` (read by the service), `edureach-db-password` (used for local ingest) | free tier |
 | Artifact Registry | cleanup policy keeps the 2 newest images | under free tier |
@@ -156,3 +156,5 @@ gcloud sql instances patch edureach-db --activation-policy ALWAYS
 ```
 
 zsh note: write `${P}:us-central1`, not `$P:us-central1`. zsh reads `$P:u` as its uppercase modifier.
+
+**How the caller IP is read (verified live Nov 12, 2026):** Cloud Run's front end appends exactly one entry, the real client address, to the right end of `X-Forwarded-For`; it matched Cloud Run's own `httpRequest.remoteIp`. Anything to the left is client-supplied (a test request sending `X-Forwarded-For: 1.2.3.4, 5.6.7.8` arrived as `1.2.3.4, 5.6.7.8, <real address>`). So the API uses the entry `TRUSTED_PROXY_HOPS` from the right. If a load balancer is ever put in front, it appends its own entry: re-check and raise the value. Live test after the fix: 22 calls with spoofed forwarded IPs and device IDs, calls 21 and 22 were rate-limited.

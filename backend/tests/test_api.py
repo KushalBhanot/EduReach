@@ -139,3 +139,25 @@ def test_hourly_cap_applies_across_callers(monkeypatch):
     res = [client.post("/v1/ask", json=ASK, headers={"x-forwarded-for": f"10.0.0.{i}"}) for i in range(3)]
     assert [r.status_code for r in res] == [200, 200, 429]
     assert res[2].json()["error"] == "busy"
+
+
+def test_spoofed_forwarded_prefix_does_not_change_the_caller(monkeypatch):
+    # The proxy appends the real address last; a client can only prepend fake ones.
+    client, _ = make({"gemini-3.1-flash-lite": [response("1"), response("2"), response("3")]}, monkeypatch, rate=2)
+    codes = [client.post("/v1/ask", json=ASK, headers={"x-forwarded-for": f"9.9.9.{i}, 203.0.113.7"}).status_code
+             for i in range(3)]
+    assert codes == [200, 200, 429]
+
+
+def test_distinct_real_callers_are_limited_separately(monkeypatch):
+    client, _ = make({"gemini-3.1-flash-lite": [response("1"), response("2"), response("3")]}, monkeypatch, rate=1)
+    codes = [client.post("/v1/ask", json=ASK, headers={"x-forwarded-for": f"203.0.113.{i}"}).status_code
+             for i in range(3)]
+    assert codes == [200, 200, 200]
+
+
+def test_ipv6_callers_are_grouped_by_64(monkeypatch):
+    client, _ = make({"gemini-3.1-flash-lite": [response("1"), response("2"), response("3")]}, monkeypatch, rate=2)
+    codes = [client.post("/v1/ask", json=ASK, headers={"x-forwarded-for": f"2001:db8:1:2::{i}"}).status_code
+             for i in range(1, 4)]
+    assert codes == [200, 200, 429]
